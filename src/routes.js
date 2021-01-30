@@ -57,9 +57,9 @@ const ArtikelCreate = React.lazy(() => import("./pages/artikel/create"));
 // ====================================================================================================================
 const routes = [
   {
-    path: "/artikel/create",
+    path: "/admin-web/artikel",
     exact: true,
-    name: "Default",
+    name: "Artikel",
     component: ArtikelCreate,
   },
   {

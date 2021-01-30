@@ -7,16 +7,16 @@ export default {
       icon: "icon-navigation",
       children: [
         {
-          id: "artikel",
-          title: "Artikel",
+          id: "admin-web",
+          title: "Admin Web",
           type: "collapse",
-          icon: "feather icon-file",
+          icon: "feather icon-monitor",
           children: [
             {
-              id: "create",
-              title: "Artikel Create",
+              id: "artikel",
+              title: "Artikel",
               type: "item",
-              url: "/artikel/create",
+              url: "/admin-web/artikel",
               icon: "feather icon-edit",
             },
           ],
