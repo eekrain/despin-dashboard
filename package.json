@@ -4,10 +4,13 @@
   "private": true,
   "homepage": "http://lite.codedthemes.com/datta-able/react/default/",
   "dependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "draft-js": "^0.11.7",
     "font-awesome": "^4.7.0",
+    "form-data": "^3.0.0",
     "formik": "^2.2.6",
+    "formik-effect": "^1.2.0",
     "google-maps-react": "^2.0.2",
     "immutable": "^4.0.0-rc.12",
     "jquery": "^3.4.0",
@@ -28,10 +31,11 @@
     "react-scripts": "^3.0.0",
     "react-window-size": "^1.2.2",
     "redux": "^4.0.1",
+    "uuid": "^8.3.2",
     "yup": "^0.32.8"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env PORT=5000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -46,6 +50,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "react-to-print": "^2.1.1"
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Row, Col, Button, Card, Collapse } from "react-bootstrap";
 
 import Aux from "../../../hoc/_Aux";
-import DEMO from "../../../../store/constant";
+import DEMO from "../../../../shared/stores/datta/constant";
 
 class BasicCollapse extends Component {
   state = {

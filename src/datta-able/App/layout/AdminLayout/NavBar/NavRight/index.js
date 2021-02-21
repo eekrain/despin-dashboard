@@ -3,7 +3,7 @@ import { Dropdown } from "react-bootstrap";
 
 import ChatList from "./ChatList";
 import Aux from "../../../../../hoc/_Aux";
-import DEMO from "../../../../../../store/constant";
+import DEMO from "../../../../../../shared/stores/datta/constant";
 
 import Avatar1 from "../../../../../assets/images/user/avatar-1.jpg";
 import Avatar2 from "../../../../../assets/images/user/avatar-2.jpg";

@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import NavLeft from "./NavLeft";
 import NavRight from "./NavRight";
 import Aux from "../../../../hoc/_Aux";
-import DEMO from "../../../../../store/constant";
-import * as actionTypes from "../../../../../store/actions";
+import DEMO from "../../../../../shared/stores/datta/constant";
+import * as actionTypes from "../../../../../shared/stores/datta/actionTypes";
 
 class NavBar extends Component {
   render() {
@@ -57,6 +57,7 @@ class NavBar extends Component {
 }
 
 const mapStateToProps = (state) => {
+  state = state.datta;
   return {
     rtlLayout: state.rtlLayout,
     headerBackColor: state.headerBackColor,

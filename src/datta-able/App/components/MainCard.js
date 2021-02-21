@@ -3,7 +3,7 @@ import { Dropdown, Card, Collapse } from "react-bootstrap";
 import windowSize from "react-window-size";
 
 import Aux from "../../hoc/_Aux";
-import DEMO from "../../../store/constant";
+import DEMO from "../../../shared/stores/datta/constant";
 
 class MainCard extends Component {
   state = {

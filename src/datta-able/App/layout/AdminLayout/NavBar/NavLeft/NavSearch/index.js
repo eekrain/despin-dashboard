@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import windowSize from "react-window-size";
 
 import Aux from "../../../../../../hoc/_Aux";
-import DEMO from "../../../../../../../store/constant";
+import DEMO from "../../../../../../../shared/stores/datta/constant";
 
 class NavSearch extends Component {
   state = {

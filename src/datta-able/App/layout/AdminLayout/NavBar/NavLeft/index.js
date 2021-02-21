@@ -5,8 +5,8 @@ import windowSize from "react-window-size";
 
 import NavSearch from "./NavSearch";
 import Aux from "../../../../../hoc/_Aux";
-import DEMO from "../../../../../../store/constant";
-import * as actionTypes from "../../../../../../store/actions";
+import DEMO from "../../../../../../shared/stores/datta/constant";
+import * as actionTypes from "../../../../../../shared/stores/datta/actionTypes";
 
 class NavLeft extends Component {
   render() {
@@ -72,6 +72,8 @@ class NavLeft extends Component {
 }
 
 const mapStateToProps = (state) => {
+  state = state.datta;
+
   return {
     isFullScreen: state.isFullScreen,
     rtlLayout: state.rtlLayout,

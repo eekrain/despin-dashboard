@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import config from "../../../../../config";
 import navigation from "../../../../../menu-items";
-import DEMO from "../../../../../store/constant";
+import DEMO from "../../../../../shared/stores/datta/constant";
 import Aux from "../../../../hoc/_Aux";
 
 class Breadcrumb extends Component {

@@ -6,8 +6,8 @@ import windowSize from "react-window-size";
 
 import Aux from "../../../../../hoc/_Aux";
 import NavGroup from "./NavGroup";
-import DEMO from "../../../../../../store/constant";
-import * as actionTypes from "../../../../../../store/actions";
+import DEMO from "../../../../../../shared/stores/datta/constant";
+import * as actionTypes from "../../../../../../shared/stores/datta/actionTypes";
 
 class NavContent extends Component {
   state = {
@@ -111,6 +111,7 @@ class NavContent extends Component {
 }
 
 const mapStateToProps = (state) => {
+  state = state.datta;
   return {
     layout: state.layout,
     collapseMenu: state.collapseMenu,

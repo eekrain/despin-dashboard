@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import Aux from "../../../../../../hoc/_Aux";
-import DEMO from "../../../../../../../store/constant";
-import * as actionTypes from "../../../../../../../store/actions";
+import DEMO from "../../../../../../../shared/stores/datta/constant";
+import * as actionTypes from "../../../../../../../shared/stores/datta/actionTypes";
 import NavIcon from "./../NavIcon";
 import NavBadge from "./../NavBadge";
 import NavItem from "../NavItem";
@@ -121,6 +121,7 @@ class NavCollapse extends Component {
 }
 
 const mapStateToProps = (state) => {
+  state = state.datta;
   return {
     layout: state.layout,
     isOpen: state.isOpen,

@@ -3,7 +3,7 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 
 import Friends from "./Friends";
 import Aux from "../../../../../../hoc/_Aux";
-import DEMO from "../../../../../../../store/constant";
+import DEMO from "../../../../../../../shared/stores/datta/constant";
 
 const chatList = (props) => {
   let listClass = ["header-user-list"];

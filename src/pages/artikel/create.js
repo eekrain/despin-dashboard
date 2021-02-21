@@ -5,86 +5,78 @@ import { EditorState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import "../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "./artikelForm.css";
-import { Formik, Form as FormikForm, Field } from "formik";
-import TextInput from "../../components/formik/TextInput";
+import { Formik, Form as FormikForm } from "formik";
+import WrapInput from "../../components/formik/WrapInput";
 import TOOLBAR_OPTIONS from "../../editor.toolbar";
-import DEMO from "../../store/constant";
+import DEMO from "../../shared/stores/datta/constant";
 import { useDropzone } from "react-dropzone";
-
-const thumbsContainer = {
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  marginTop: 16,
-};
-
-const thumb = {
-  display: "inline-flex",
-  borderRadius: 2,
-  border: "1px solid #eaeaea",
-  marginBottom: 8,
-  marginRight: 8,
-  width: 100,
-  height: 100,
-  padding: 4,
-  boxSizing: "border-box",
-};
-
-const thumbInner = {
-  display: "flex",
-  minWidth: 0,
-  overflow: "hidden",
-};
-
-const img = {
-  display: "block",
-  width: "auto",
-  height: "100%",
-};
+import FormData from "form-data";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import useUnsavedChangesWarning from "../../shared/hooks/useUnsavedChangesWarning";
+import FormikEffect from "../../shared/hooks/FormikEffect";
+import * as Yup from "yup";
 
 function ArtikelCreate() {
+  const [createId] = useState(uuidv4());
+  const [Prompt, setDirty, setPristine] = useUnsavedChangesWarning(
+    "Artikel belum disimpan, jika refresh maka data form akan hilang. Yakin untuk refresh?"
+  );
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
   const [accordionKey, setAccordionKey] = useState(1);
-  const [files, setFiles] = useState([]);
+  const [images, setImages] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
-    accept: "image/*",
-    maxFiles: 1,
+    accept: "image/jph, image/jpeg, image/png, image/gif",
     onDrop: (acceptedFiles) => {
-      setFiles(
-        acceptedFiles.map((file) =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file),
-          })
-        )
-      );
+      let data = new FormData();
+      data.append("tempArtikelId", createId);
+      acceptedFiles.forEach((file) => {
+        data.append("images[]", file, file.name);
+      });
+
+      axios
+        .post("http://localhost:3000/api/artikel/uploadImage", data, {
+          headers: {
+            accept: "application/json",
+            "Accept-Language": "en-US,en;q=0.8",
+            "Content-Type": `multipart/form-data; boundary=${data._boundary}`,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          setImages([...images]);
+        })
+        .catch((error) => {
+          console.log(
+            "🚀 ~ file: create.js ~ line 42 ~ ArtikelCreate ~ error",
+            error
+          );
+          //handle error
+        });
     },
   });
 
-  const thumbs = files.map((file) => (
-    <div style={thumb} key={file.name}>
-      <div style={thumbInner}>
-        <img src={file.preview} style={img} />
-      </div>
-    </div>
-  ));
-
-  useEffect(
-    () => () => {
-      // Make sure to revoke the data uris to avoid memory leaks
-      files.forEach((file) => URL.revokeObjectURL(file.preview));
-    },
-    [files]
-  );
-
   return (
     <Aux>
+      {Prompt}
       <Row>
         <Col>
-          <Formik initialValues={{ judul: "", content: "" }}>
-            {(props) => (
+          <Formik
+            initialValues={{ judul: "", content: "" }}
+            render={(props) => (
               <FormikForm>
+                <FormikEffect
+                  onChange={(currentFormikState, nextFormikState) => {
+                    console.log(props.dirty);
+                    if (props.dirty) {
+                      setDirty();
+                    } else {
+                      setPristine();
+                    }
+                  }}
+                />
                 <Row>
                   <Col md={8}>
                     <Card>
@@ -93,7 +85,7 @@ function ArtikelCreate() {
                       </Card.Header>
                       <Card.Body>
                         <Form.Label>Judul Artikel</Form.Label>
-                        <TextInput
+                        <WrapInput
                           name="judul"
                           type="text"
                           size="sm"
@@ -115,7 +107,7 @@ function ArtikelCreate() {
                           placeholder="Isi Artikel..."
                           toolbar={TOOLBAR_OPTIONS}
                         />
-                        <TextInput name="content" type="hidden" />
+                        <WrapInput name="content" type="hidden" />
                       </Card.Body>
                     </Card>
                   </Col>
@@ -154,7 +146,6 @@ function ArtikelCreate() {
                                 meng-unggah gambar.
                               </p>
                             </div>
-                            <aside style={thumbsContainer}>{thumbs}</aside>
                             <hr className="mt-3" />
                             <h5>Gambar Tambahan</h5>
                             <div className="container-drop-file">
@@ -176,7 +167,7 @@ function ArtikelCreate() {
                 <pre>{JSON.stringify(props.values, null, 2)}</pre>
               </FormikForm>
             )}
-          </Formik>
+          ></Formik>
         </Col>
       </Row>
     </Aux>

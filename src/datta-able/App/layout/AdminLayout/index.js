@@ -10,7 +10,7 @@ import Breadcrumb from "./Breadcrumb";
 import Loader from "../Loader";
 import routes from "../../../../routes";
 import Aux from "../../../hoc/_Aux";
-import * as actionTypes from "../../../../store/actions";
+import * as actionTypes from "../../../../shared/stores/datta/actionTypes";
 
 import "./app.scss";
 
@@ -101,6 +101,7 @@ class AdminLayout extends Component {
 }
 
 const mapStateToProps = (state) => {
+  state = state.datta;
   return {
     defaultPath: state.defaultPath,
     isFullScreen: state.isFullScreen,

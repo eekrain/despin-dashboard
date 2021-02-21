@@ -3,7 +3,7 @@ import { Row, Col, Breadcrumb, Pagination } from "react-bootstrap";
 
 import Aux from "../../../hoc/_Aux";
 import Card from "../../../App/components/MainCard";
-import DEMO from "../../../../store/constant";
+import DEMO from "../../../../shared/stores/datta/constant";
 
 class BreadcrumbPagination extends Component {
   render() {

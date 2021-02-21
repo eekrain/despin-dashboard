@@ -1,7 +1,7 @@
 import React from "react";
 
 import Aux from "../../../../../../../../hoc/_Aux";
-import DEMO from "../../../../../../../../../store/constant";
+import DEMO from "../../../../../../../../../shared/stores/datta/constant";
 const images = require.context(
   "../../../../../../../../assets/images/user",
   true

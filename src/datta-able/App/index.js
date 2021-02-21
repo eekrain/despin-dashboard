@@ -8,6 +8,7 @@ import Loader from "./layout/Loader";
 import Aux from "../hoc/_Aux";
 import ScrollToTop from "./layout/ScrollToTop";
 import routes from "../../route";
+import authService from "../../shared/services/auth.service";
 
 const AdminLayout = Loadable({
   loader: () => import("./layout/AdminLayout"),
@@ -15,6 +16,10 @@ const AdminLayout = Loadable({
 });
 
 class App extends Component {
+  componentDidMount() {
+    authService.setRefreshTokenEndpoint();
+  }
+
   render() {
     const menu = routes.map((route, index) => {
       return route.component ? (

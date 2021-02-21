@@ -6,10 +6,13 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./datta-able/App/index";
 import * as serviceWorker from "./serviceWorker";
-import reducer from "./store/reducer";
+import stores from "./shared/stores";
 import config from "./config";
 
-const store = createStore(reducer);
+const store = createStore(
+  stores,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const app = (
   <Provider store={store}>
