@@ -1,58 +1,54 @@
-import config from "config";
-import { authHeader } from "../_helpers";
+import inMemoryJWT from "../helpers/inMemoryJWTManager";
+import config from "../../config";
 import axios from "axios";
 
-export const userService = {
-  login,
-  logout,
-  getAll,
+const userService = {
+  setRefreshTokenEndpoint: () => {
+    inMemoryJWT.setRefreshTokenEndpoint(
+      `${config.DESPIN_API_URL}/auth/admin/refresh`
+    );
+  },
+  login: (userCredentials) => {
+    return axios
+      .post(`${config.DESPIN_API_URL}/auth/admin/login`, userCredentials, {
+        headers: {
+          accept: "application/json",
+        },
+      })
+      .then((response) => {
+        if (response.status < 200 || response.status >= 300) {
+          throw new Error(response.statusText);
+        }
+        return response;
+      })
+      .then((response) => {
+        const { token, tokenExpiry } = response.data.data.payload;
+        const user = response.data.data.user;
+        inMemoryJWT.setToken(token, tokenExpiry);
+        return user;
+      });
+  },
+  isLoggedIn: () => {
+    return axios
+      .get(`${config.DESPIN_API_URL}/auth/admin/refresh`, {
+        withCredentials: true,
+        headers: {
+          accept: "application/json",
+        },
+      })
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error(response.statusText);
+        }
+        return response;
+      })
+      .then((response) => {
+        const { token, tokenExpiry } = response.data.data.payload;
+        const user = response.data.data.user;
+        inMemoryJWT.setToken(token, tokenExpiry);
+        return user;
+      });
+  },
 };
 
-function login(username, password) {
-  const requestOptions = {
-    method: "POST",
-  };
-
-  return axios();
-
-  return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
-    .then(handleResponse)
-    .then((user) => {
-      // store user details and jwt token in local storage to keep user logged in between page refreshes
-      localStorage.setItem("user", JSON.stringify(user));
-
-      return user;
-    });
-}
-
-function logout() {
-  // remove user from local storage to log user out
-  localStorage.removeItem("user");
-}
-
-function getAll() {
-  const requestOptions = {
-    method: "GET",
-    headers: authHeader(),
-  };
-
-  return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
-}
-
-function handleResponse(response) {
-  return response.text().then((text) => {
-    const data = text && JSON.parse(text);
-    if (!response.ok) {
-      if (response.status === 401) {
-        // auto logout if 401 response returned from api
-        logout();
-        window.location.reload();
-      }
-
-      const error = (data && data.message) || response.statusText;
-      return Promise.reject(error);
-    }
-
-    return data;
-  });
-}
+export default userService;

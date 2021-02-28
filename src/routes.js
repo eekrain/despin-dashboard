@@ -61,6 +61,7 @@ const routes = [
     exact: true,
     name: "Home",
     component: DashboardDefault,
+    private: true,
   },
   {
     path: "/admin-web/artikel",

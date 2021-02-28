@@ -12,6 +12,7 @@
     "formik": "^2.2.6",
     "formik-effect": "^1.2.0",
     "google-maps-react": "^2.0.2",
+    "history": "^5.0.0",
     "immutable": "^4.0.0-rc.12",
     "jquery": "^3.4.0",
     "node-sass": "^4.14.0",
@@ -31,6 +32,8 @@
     "react-scripts": "^3.0.0",
     "react-window-size": "^1.2.2",
     "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "uuid": "^8.3.2",
     "yup": "^0.32.8"
   },

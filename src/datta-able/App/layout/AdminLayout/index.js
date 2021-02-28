@@ -13,6 +13,7 @@ import Aux from "../../../hoc/_Aux";
 import * as actionTypes from "../../../../shared/stores/datta/actionTypes";
 
 import "./app.scss";
+import { PrivateRoute } from "../../../../shared/components/PrivateRoute";
 
 class AdminLayout extends Component {
   fullScreenExitHandler = () => {
@@ -56,15 +57,29 @@ class AdminLayout extends Component {
     document.addEventListener("MSFullscreenChange", this.fullScreenExitHandler);
 
     const menu = routes.map((route, index) => {
-      return route.component ? (
-        <Route
-          key={index}
-          path={route.path}
-          exact={route.exact}
-          name={route.name}
-          render={(props) => <route.component {...props} />}
-        />
-      ) : null;
+      if (route.component && route.private) {
+        return (
+          <PrivateRoute
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            name={route.name}
+            render={(props) => <route.component {...props} />}
+          />
+        );
+      } else if (route.component && !route.private) {
+        return (
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            name={route.name}
+            render={(props) => <route.component {...props} />}
+          />
+        );
+      } else {
+        return null;
+      }
     });
 
     return (

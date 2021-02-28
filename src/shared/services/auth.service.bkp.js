@@ -11,7 +11,6 @@ const authService = {
 
   login: ({ username, password }) => {
     const data = { username, password };
-    console.log("🚀 ~ file: auth.service.js ~ line 14 ~ data", data);
     axios
       .post(`${config.DESPIN_API_URL}/auth/admin/login`, data, {
         headers: {
@@ -24,8 +23,11 @@ const authService = {
         }
         return response;
       })
-      .then(({ token, tokenExpiry }) => {
-        return inMemoryJWT.setToken(token, tokenExpiry);
+      .then((response) => {
+        const { token, tokenExpiry } = response?.data?.data?.payload;
+        const { user } = response?.data?.data?.user;
+        inMemoryJWT.setToken(token, tokenExpiry);
+        return user;
       });
   },
 

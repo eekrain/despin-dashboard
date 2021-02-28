@@ -6,7 +6,7 @@ import { Editor } from "react-draft-wysiwyg";
 import "../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "./artikelForm.css";
 import { Formik, Form as FormikForm } from "formik";
-import WrapInput from "../../components/formik/WrapInput";
+import WrapInput from "../../shared/components/formik/WrapInput";
 import TOOLBAR_OPTIONS from "../../editor.toolbar";
 import DEMO from "../../shared/stores/datta/constant";
 import { useDropzone } from "react-dropzone";

@@ -37,7 +37,7 @@ const inMemoryJWTManager = () => {
   // The method make a call to the refresh-token endpoint
   // If there is a valid cookie, the endpoint will set a fresh jwt in memory.
   const getRefreshedToken = () => {
-    axios
+    return axios
       .get(refreshEndpoint, {
         withCredentials: true,
         headers: {
@@ -53,6 +53,10 @@ const inMemoryJWTManager = () => {
         return response;
       })
       .then((response) => {
+        console.log(
+          "🚀 ~ file: inMemoryJWTManager.js ~ line 56 ~ .then ~ response",
+          response
+        );
         const token = response?.data?.data?.payload?.token;
         const tokenExpiry = response?.data?.data?.payload?.tokenExpiresIn;
         if (token) {

@@ -1,25 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import thunkMiddleware from "redux-thunk";
+import { createLogger } from "redux-logger";
+import { Router } from "react-router-dom";
 
 import App from "./datta-able/App/index";
 import * as serviceWorker from "./serviceWorker";
 import stores from "./shared/stores";
 import config from "./config";
+import { history } from "./shared/helpers/history";
 
+const loggerMiddleware = createLogger();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   stores,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeEnhancers(applyMiddleware(thunkMiddleware, loggerMiddleware))
 );
 
 const app = (
   <Provider store={store}>
-    <BrowserRouter basename={config.basename}>
+    <Router history={history} basename={config.basename}>
       {/* basename="/datta-able" */}
       <App />
-    </BrowserRouter>
+    </Router>
   </Provider>
 );
 
