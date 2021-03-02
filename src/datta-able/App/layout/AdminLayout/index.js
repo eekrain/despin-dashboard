@@ -11,6 +11,7 @@ import Loader from "../Loader";
 import routes from "../../../../routes";
 import Aux from "../../../hoc/_Aux";
 import * as actionTypes from "../../../../shared/stores/datta/actionTypes";
+import config from "../../../../config";
 
 import "./app.scss";
 import { PrivateRoute } from "../../../../shared/components/PrivateRoute";
@@ -58,15 +59,27 @@ class AdminLayout extends Component {
 
     const menu = routes.map((route, index) => {
       if (route.component && route.private) {
-        return (
-          <PrivateRoute
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            name={route.name}
-            render={(props) => <route.component {...props} />}
-          />
-        );
+        if (config.authenticaticationService) {
+          return (
+            <PrivateRoute
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              name={route.name}
+              render={(props) => <route.component {...props} />}
+            />
+          );
+        } else {
+          return (
+            <Route
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              name={route.name}
+              render={(props) => <route.component {...props} />}
+            />
+          );
+        }
       } else if (route.component && !route.private) {
         return (
           <Route

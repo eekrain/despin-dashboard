@@ -11,6 +11,7 @@ import ScrollToTop from "./layout/ScrollToTop";
 import routes from "../../route";
 import authService from "../../shared/services/auth.service.bkp";
 import { userActions } from "../../shared/actions/user.action";
+import config from "../../config";
 
 const AdminLayout = Loadable({
   loader: () => import("./layout/AdminLayout"),
@@ -20,20 +21,34 @@ const AdminLayout = Loadable({
 class App extends Component {
   componentDidMount() {
     authService.setRefreshTokenEndpoint();
-    this.props.dispatch(userActions.isLoggedIn());
+    if (config.authenticaticationService) {
+      this.props.dispatch(userActions.isLoggedIn());
+    }
   }
 
   render() {
     const menu = routes.map((route, index) => {
-      return route.component ? (
-        <PublicRoute
-          key={index}
-          path={route.path}
-          exact={route.exact}
-          name={route.name}
-          render={(props) => <route.component {...props} />}
-        />
-      ) : null;
+      if (config.authenticaticationService) {
+        return route.component ? (
+          <PublicRoute
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            name={route.name}
+            render={(props) => <route.component {...props} />}
+          />
+        ) : null;
+      } else {
+        return route.component ? (
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            name={route.name}
+            render={(props) => <route.component {...props} />}
+          />
+        ) : null;
+      }
     });
 
     return (
