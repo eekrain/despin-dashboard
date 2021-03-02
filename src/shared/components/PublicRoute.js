@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-const PrivateRoute = ({ render: Component, ...rest }) => {
+const PublicRoute = ({ render: Component, ...rest }) => {
   const { user, loginError } = rest;
 
   return (
@@ -10,13 +10,11 @@ const PrivateRoute = ({ render: Component, ...rest }) => {
       {...rest}
       render={(props) => {
         if (user && !loginError) {
-          return <Component {...props} />;
-        } else {
           return (
-            <Redirect
-              to={{ pathname: "/auth/login", state: { from: props.location } }}
-            />
+            <Redirect to={{ pathname: "/", state: { from: props.location } }} />
           );
+        } else {
+          return <Component {...props} />;
         }
       }}
     />
@@ -28,6 +26,6 @@ const mapStateToProps = (state) => {
   return { loginError, user };
 };
 
-const connectedPrivateRoute = connect(mapStateToProps)(PrivateRoute);
+const connectedPublicRoute = connect(mapStateToProps)(PublicRoute);
 
-export { connectedPrivateRoute as PrivateRoute };
+export { connectedPublicRoute as PublicRoute };

@@ -1,6 +1,7 @@
 import inMemoryJWT from "../helpers/inMemoryJWTManager";
 import config from "../../config";
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 const userService = {
   setRefreshTokenEndpoint: () => {

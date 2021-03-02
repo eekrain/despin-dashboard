@@ -23,7 +23,7 @@ const app = (
   <Provider store={store}>
     <Router history={history} basename={config.basename}>
       {/* basename="/datta-able" */}
-      <App />
+      <App dispatch={store.dispatch} />
     </Router>
   </Provider>
 );

@@ -1,6 +1,7 @@
 import React, { Component, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import Loadable from "react-loadable";
+import { PublicRoute } from "../../shared/components/PublicRoute";
 
 import "../../../node_modules/font-awesome/scss/font-awesome.scss";
 
@@ -9,6 +10,7 @@ import Aux from "../hoc/_Aux";
 import ScrollToTop from "./layout/ScrollToTop";
 import routes from "../../route";
 import authService from "../../shared/services/auth.service.bkp";
+import { userActions } from "../../shared/actions/user.action";
 
 const AdminLayout = Loadable({
   loader: () => import("./layout/AdminLayout"),
@@ -18,12 +20,13 @@ const AdminLayout = Loadable({
 class App extends Component {
   componentDidMount() {
     authService.setRefreshTokenEndpoint();
+    this.props.dispatch(userActions.isLoggedIn());
   }
 
   render() {
     const menu = routes.map((route, index) => {
       return route.component ? (
-        <Route
+        <PublicRoute
           key={index}
           path={route.path}
           exact={route.exact}
