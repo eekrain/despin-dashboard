@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Prompt } from "react-router-dom";
 
 function useUnsavedChangesWarning(
-  message = "Artikel belum disimpan, jika refresh maka data form akan hilang. Yakin untuk refresh?"
+  message = "Data wasn't saved, do u really want to refresh the page?"
 ) {
   const [isDirty, setDirty] = useState(false);
 

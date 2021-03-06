@@ -13,10 +13,14 @@ import authService from "../../shared/services/auth.service.bkp";
 import { userActions } from "../../shared/actions/user.action";
 import config from "../../config";
 
+import { QueryClient, QueryClientProvider } from "react-query";
+
 const AdminLayout = Loadable({
   loader: () => import("./layout/AdminLayout"),
   loading: Loader,
 });
+
+const queryClient = new QueryClient();
 
 class App extends Component {
   componentDidMount() {
@@ -54,12 +58,14 @@ class App extends Component {
     return (
       <Aux>
         <ScrollToTop>
-          <Suspense fallback={<Loader />}>
-            <Switch>
-              {menu}
-              <Route path="/" component={AdminLayout} />
-            </Switch>
-          </Suspense>
+          <QueryClientProvider client={queryClient}>
+            <Suspense fallback={<Loader />}>
+              <Switch>
+                {menu}
+                <Route path="/" component={AdminLayout} />
+              </Switch>
+            </Suspense>
+          </QueryClientProvider>
         </ScrollToTop>
       </Aux>
     );

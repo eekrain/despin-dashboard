@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const inMemoryJWTManager = () => {
   let inMemoryJWT = null;
   let isRefreshing = null;
@@ -66,8 +67,6 @@ const inMemoryJWTManager = () => {
         ereaseToken();
         return false;
       });
-
-    return isRefreshing;
   };
 
   const getToken = () => inMemoryJWT;

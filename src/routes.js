@@ -52,7 +52,9 @@ const OtherDocs = React.lazy(() => import("./datta-able/Demo/Other/Docs"));
 
 // ====================================================================================================================
 
-const ArtikelCreate = React.lazy(() => import("./pages/artikel/create"));
+const ArtikelForm = React.lazy(() =>
+  import("./pages/artikel/form/ArtikelFormContainer")
+);
 
 // ====================================================================================================================
 const routes = [
@@ -67,7 +69,7 @@ const routes = [
     path: "/admin-web/artikel",
     exact: true,
     name: "Artikel",
-    component: ArtikelCreate,
+    component: ArtikelForm,
     private: true,
   },
   {
