@@ -17,6 +17,7 @@ import ListImageUploadedArtikelForm from "./components/ListImageUploadedArtikelF
 
 function ArtikelForm({
   tempArtikelId,
+  formikInitialValues,
   Editor,
   TOOLBAR_OPTIONS,
   editorState,
@@ -27,6 +28,7 @@ function ArtikelForm({
   queryClient,
   imagesUploaded,
   uploadMutation,
+  handleSetDefaultImage,
 }) {
   const [Prompt, setDirty, setPristine] = useUnsavedChangesWarning();
 
@@ -35,14 +37,7 @@ function ArtikelForm({
       {Prompt}
       <Row>
         <Col>
-          <Formik
-            initialValues={{
-              judul: "",
-              content: {},
-              images: [],
-              attachment: [],
-            }}
-          >
+          <Formik initialValues={formikInitialValues}>
             {(props) => (
               <FormikForm>
                 <Row>
@@ -92,6 +87,8 @@ function ArtikelForm({
                           <Card.Body>
                             <ListImageUploadedArtikelForm
                               images={imagesUploaded?.data?.data}
+                              queryClient={queryClient}
+                              handleSetDefaultImage={handleSetDefaultImage}
                             />
                             <hr className="mt-3" />
                             <DropzoneFormik

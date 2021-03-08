@@ -55,7 +55,32 @@ const getNewArtikelUploadedImages = (tempArtikelId) => {
     });
 };
 
-const handleSetDefaultImage = (tempArtikelId, tempIImageId) => {};
+const handleSetDefaultImage = (data, queryClient) => {
+  axios
+    .patch(
+      "http://localhost:3000/api/v1/artikel/setTempImageAsMainImage",
+      data,
+      {
+        withCredentials: true,
+        headers: {
+          accept: "application/json",
+        },
+      }
+    )
+    .then((response) => {
+      queryClient.invalidateQueries("imagesUploaded");
+      console.log(
+        "🚀 ~ file: ArtikelFormContainer.js ~ line 69 ~ ).then ~ response",
+        response
+      );
+    })
+    .catch((error) => {
+      console.log(
+        "🚀 ~ file: ArtikelFormContainer.js ~ line 76 ~ .then ~ error",
+        error
+      );
+    });
+};
 
 const ArtikelFormContainer = () => {
   const [tempArtikelId] = useState(uuidv4());
@@ -72,10 +97,17 @@ const ArtikelFormContainer = () => {
     EditorState.createEmpty()
   );
   const [accordionKey, setAccordionKey] = useState(1);
+  const formikInitialValues = {
+    judul: "",
+    content: {},
+    images: [],
+    attachment: [],
+  };
 
   return (
     <ArtikelForm
       tempArtikelId={tempArtikelId}
+      formikInitialValues={formikInitialValues}
       Editor={Editor}
       TOOLBAR_OPTIONS={TOOLBAR_OPTIONS}
       editorState={editorState}
@@ -86,6 +118,7 @@ const ArtikelFormContainer = () => {
       queryClient={queryClient}
       imagesUploaded={imagesUploaded}
       uploadMutation={uploadMutation}
+      handleSetDefaultImage={handleSetDefaultImage}
     />
   );
 };
