@@ -15,10 +15,6 @@ function ListImageUploadedArtikelForm({
       <>
         {images.map(
           ({ id, tempArtikelId, url, displayName, isMain }, index) => {
-            const dataSetMainImage = {
-              tempArtikelId,
-              hashedTempImageId: id,
-            };
             return (
               <Fragment key={id}>
                 {index > 0 && <hr className="mt-2" />}

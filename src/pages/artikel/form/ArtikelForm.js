@@ -1,6 +1,6 @@
 import { Formik, Form as FormikForm } from "formik";
 import React from "react";
-import { Card, Col, Row, Collapse } from "react-bootstrap";
+import { Card, Col, Row, Collapse, Button } from "react-bootstrap";
 import Aux from "../../../datta-able/hoc/_Aux";
 import WrapInput from "../../../shared/components/formik/WrapInput";
 import FormikEffect from "../../../shared/hooks/FormikEffect";
@@ -18,6 +18,7 @@ import ListImageUploadedArtikelForm from "./components/ListImageUploadedArtikelF
 function ArtikelForm({
   tempArtikelId,
   formikInitialValues,
+  handleSubmit,
   Editor,
   TOOLBAR_OPTIONS,
   editorState,
@@ -37,7 +38,13 @@ function ArtikelForm({
       {Prompt}
       <Row>
         <Col>
-          <Formik initialValues={formikInitialValues}>
+          <Formik
+            initialValues={formikInitialValues}
+            onSubmit={(values, actions) => {
+              actions.setSubmitting(false);
+              handleSubmit(values);
+            }}
+          >
             {(props) => (
               <FormikForm>
                 <Row>
@@ -47,10 +54,10 @@ function ArtikelForm({
                         <Card.Title as="h5">Create Artikel</Card.Title>
                       </Card.Header>
                       <Card.Body>
-                        <JudulArtikelForm label="Judul Artikel" name="judul" />
+                        <JudulArtikelForm label="Judul Artikel" name="title" />
                         <ContentArtikelForm
                           label="Isi Artikel"
-                          name="content"
+                          name="body"
                           setFieldValue={props.setFieldValue}
                           Editor={Editor}
                           editorState={editorState}
@@ -109,6 +116,11 @@ function ArtikelForm({
                   </Col>
 
                   <pre>{JSON.stringify(props.values, null, 2)}</pre>
+                </Row>
+                <Row>
+                  <Col>
+                    <Button type="submit">Save</Button>
+                  </Col>
                 </Row>
 
                 <FormikEffect

@@ -84,6 +84,28 @@ const handleSetDefaultImage = (
     });
 };
 
+const handleSubmit = (formikValue) => {
+  axios
+    .post("http://localhost:3000/api/v1/artikel", formikValue, {
+      withCredentials: true,
+      headers: {
+        accept: "application/json",
+      },
+    })
+    .then((response) => {
+      console.log(
+        "🚀 ~ file: ArtikelFormContainer.js ~ line 94 ~ handleSubmit ~ response",
+        response
+      );
+    })
+    .catch((error) => {
+      console.log(
+        "🚀 ~ file: ArtikelFormContainer.js ~ line 101 ~ .then ~ error",
+        error
+      );
+    });
+};
+
 const ArtikelFormContainer = () => {
   const [tempArtikelId] = useState(uuidv4());
   const queryClient = useQueryClient();
@@ -100,8 +122,9 @@ const ArtikelFormContainer = () => {
   );
   const [accordionKey, setAccordionKey] = useState(1);
   const formikInitialValues = {
-    judul: "",
-    content: {},
+    tempArtikelId,
+    title: "",
+    body: {},
     mainImageId: "",
   };
 
@@ -109,6 +132,7 @@ const ArtikelFormContainer = () => {
     <ArtikelForm
       tempArtikelId={tempArtikelId}
       formikInitialValues={formikInitialValues}
+      handleSubmit={handleSubmit}
       Editor={Editor}
       TOOLBAR_OPTIONS={TOOLBAR_OPTIONS}
       editorState={editorState}
