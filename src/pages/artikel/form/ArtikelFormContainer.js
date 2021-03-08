@@ -55,11 +55,16 @@ const getNewArtikelUploadedImages = (tempArtikelId) => {
     });
 };
 
-const handleSetDefaultImage = (data, queryClient) => {
-  axios
+const handleSetDefaultImage = (
+  tempArtikelId,
+  hashedTempImageId,
+  queryClient
+) => {
+  const dataSetDefaultImage = { tempArtikelId, hashedTempImageId };
+  return axios
     .patch(
       "http://localhost:3000/api/v1/artikel/setTempImageAsMainImage",
-      data,
+      dataSetDefaultImage,
       {
         withCredentials: true,
         headers: {
@@ -69,13 +74,10 @@ const handleSetDefaultImage = (data, queryClient) => {
     )
     .then((response) => {
       queryClient.invalidateQueries("imagesUploaded");
-      console.log(
-        "🚀 ~ file: ArtikelFormContainer.js ~ line 69 ~ ).then ~ response",
-        response
-      );
+      return response;
     })
     .catch((error) => {
-      console.log(
+      console.error(
         "🚀 ~ file: ArtikelFormContainer.js ~ line 76 ~ .then ~ error",
         error
       );
@@ -100,8 +102,7 @@ const ArtikelFormContainer = () => {
   const formikInitialValues = {
     judul: "",
     content: {},
-    images: [],
-    attachment: [],
+    mainImageId: "",
   };
 
   return (

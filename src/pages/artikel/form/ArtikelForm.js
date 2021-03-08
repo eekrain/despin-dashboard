@@ -88,6 +88,8 @@ function ArtikelForm({
                             <ListImageUploadedArtikelForm
                               images={imagesUploaded?.data?.data}
                               queryClient={queryClient}
+                              onChange={props.handleChange}
+                              onBlur={props.onBlur}
                               handleSetDefaultImage={handleSetDefaultImage}
                             />
                             <hr className="mt-3" />
