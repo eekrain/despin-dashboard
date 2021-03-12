@@ -7,13 +7,13 @@ export function DropzoneFormik({
   maxFiles,
   queryClient,
   uploadMutation,
-  tempArtikelId,
+  artikelId,
 }) {
   const { getRootProps, getInputProps } = useDropzone({
     accept: acceptedFileExtension,
     maxFiles: maxFiles,
     onDrop: (acceptedFiles) => {
-      uploadMutation.mutate({ tempArtikelId, acceptedFiles, queryClient });
+      uploadMutation.mutate({ artikelId, acceptedFiles, queryClient });
     },
   });
 

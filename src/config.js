@@ -1,6 +1,6 @@
 export default {
-  authenticaticationService: false,
-  DESPIN_API_URL: "http://localhost:3000/api/v1",
+  authenticaticationService: true,
+  DESPIN_API_URL: "http://localhost:3000/api",
   // ===================================================================================
   defaultPath: "/",
   basename: "", // only at build time to set, like /datta-able

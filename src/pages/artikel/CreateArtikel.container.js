@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import ArtikelForm from "./ArtikelForm";
+import ArtikelForm from "./form/ArtikelForm";
 import { v4 as uuidv4 } from "uuid";
-import { EditorState, convertToRaw } from "draft-js";
+import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
-import TOOLBAR_OPTIONS from "../../../editor.toolbar";
+import TOOLBAR_OPTIONS from "../../editor.toolbar";
 import axios from "axios";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 
-const handleUpload = (tempArtikelId, acceptedFiles, queryClient) => {
+const handleUpload = (artikelId, acceptedFiles, queryClient) => {
   let data = new FormData();
-  data.append("tempArtikelId", tempArtikelId);
+  data.append("artikelId", artikelId);
   acceptedFiles.forEach((file) => {
     data.append("images", file, file.name);
   });
@@ -38,9 +38,9 @@ const handleUpload = (tempArtikelId, acceptedFiles, queryClient) => {
     });
 };
 
-const getNewArtikelUploadedImages = (tempArtikelId) => {
+const getNewArtikelUploadedImages = (artikelId) => {
   return axios
-    .get(`http://localhost:3000/api/v1/artikel/uploadImages/${tempArtikelId}`, {
+    .get(`http://localhost:3000/api/v1/artikel/uploadImages/${artikelId}`, {
       withCredentials: true,
       headers: {
         accept: "application/json",
@@ -55,12 +55,8 @@ const getNewArtikelUploadedImages = (tempArtikelId) => {
     });
 };
 
-const handleSetDefaultImage = (
-  tempArtikelId,
-  hashedTempImageId,
-  queryClient
-) => {
-  const dataSetDefaultImage = { tempArtikelId, hashedTempImageId };
+const handleSetDefaultImage = (artikelId, hashedTempImageId, queryClient) => {
+  const dataSetDefaultImage = { artikelId, hashedTempImageId };
   return axios
     .patch(
       "http://localhost:3000/api/v1/artikel/setTempImageAsMainImage",
@@ -85,7 +81,7 @@ const handleSetDefaultImage = (
 };
 
 const handleSubmit = (formikValue) => {
-  axios
+  return axios
     .post("http://localhost:3000/api/v1/artikel", formikValue, {
       withCredentials: true,
       headers: {
@@ -97,6 +93,7 @@ const handleSubmit = (formikValue) => {
         "🚀 ~ file: ArtikelFormContainer.js ~ line 94 ~ handleSubmit ~ response",
         response
       );
+      return true;
     })
     .catch((error) => {
       console.log(
@@ -106,23 +103,24 @@ const handleSubmit = (formikValue) => {
     });
 };
 
-const ArtikelFormContainer = () => {
-  const [tempArtikelId] = useState(uuidv4());
+const CreateArtikelContainer = () => {
+  const [artikelId] = useState(uuidv4());
   const queryClient = useQueryClient();
   const imagesUploaded = useQuery("imagesUploaded", () =>
-    getNewArtikelUploadedImages(tempArtikelId)
+    getNewArtikelUploadedImages(artikelId)
   );
   const uploadMutation = useMutation(
-    ({ tempArtikelId, acceptedFiles, queryClient }) =>
-      handleUpload(tempArtikelId, acceptedFiles, queryClient)
+    ({ artikelId, acceptedFiles, queryClient }) =>
+      handleUpload(artikelId, acceptedFiles, queryClient)
   );
+  const formTitle = "Buat Artikel Baru";
 
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
   const [accordionKey, setAccordionKey] = useState(1);
   const formikInitialValues = {
-    tempArtikelId,
+    artikelId,
     title: "",
     body: {},
     mainImageId: "",
@@ -130,14 +128,14 @@ const ArtikelFormContainer = () => {
 
   return (
     <ArtikelForm
-      tempArtikelId={tempArtikelId}
+      artikelId={artikelId}
+      formTitle={formTitle}
       formikInitialValues={formikInitialValues}
       handleSubmit={handleSubmit}
       Editor={Editor}
       TOOLBAR_OPTIONS={TOOLBAR_OPTIONS}
       editorState={editorState}
       setEditorState={setEditorState}
-      convertToRaw={convertToRaw}
       accordionKey={accordionKey}
       setAccordionKey={setAccordionKey}
       queryClient={queryClient}
@@ -148,4 +146,4 @@ const ArtikelFormContainer = () => {
   );
 };
 
-export default ArtikelFormContainer;
+export default CreateArtikelContainer;

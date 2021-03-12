@@ -14,16 +14,17 @@ import DEMO from "../../../shared/stores/datta/constant";
 import JudulArtikelForm from "./components/JudulArtikelForm";
 import ContentArtikelForm from "./components/ContentArtikelForm";
 import ListImageUploadedArtikelForm from "./components/ListImageUploadedArtikelForm";
+import { useHistory } from "react-router-dom";
 
 function ArtikelForm({
-  tempArtikelId,
+  artikelId,
+  formTitle,
   formikInitialValues,
   handleSubmit,
   Editor,
   TOOLBAR_OPTIONS,
   editorState,
   setEditorState,
-  convertToRaw,
   accordionKey,
   setAccordionKey,
   queryClient,
@@ -32,7 +33,7 @@ function ArtikelForm({
   handleSetDefaultImage,
 }) {
   const [Prompt, setDirty, setPristine] = useUnsavedChangesWarning();
-
+  const history = useHistory();
   return (
     <Aux>
       {Prompt}
@@ -42,7 +43,14 @@ function ArtikelForm({
             initialValues={formikInitialValues}
             onSubmit={(values, actions) => {
               actions.setSubmitting(false);
-              handleSubmit(values);
+              const submit = handleSubmit(values);
+              if (submit) {
+                console.log(
+                  "🚀 ~ file: ArtikelForm.js ~ line 48 ~ submit",
+                  submit
+                );
+                history.push("/");
+              }
             }}
           >
             {(props) => (
@@ -51,7 +59,7 @@ function ArtikelForm({
                   <Col md={8}>
                     <Card>
                       <Card.Header>
-                        <Card.Title as="h5">Create Artikel</Card.Title>
+                        <Card.Title as="h5">{formTitle}</Card.Title>
                       </Card.Header>
                       <Card.Body>
                         <JudulArtikelForm label="Judul Artikel" name="title" />
@@ -107,7 +115,7 @@ function ArtikelForm({
                               }
                               queryClient={queryClient}
                               uploadMutation={uploadMutation}
-                              tempArtikelId={tempArtikelId}
+                              artikelId={artikelId}
                             />
                           </Card.Body>
                         </div>
