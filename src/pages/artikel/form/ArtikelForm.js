@@ -14,7 +14,6 @@ import DEMO from "../../../shared/stores/datta/constant";
 import JudulArtikelForm from "./components/JudulArtikelForm";
 import ContentArtikelForm from "./components/ContentArtikelForm";
 import ListImageUploadedArtikelForm from "./components/ListImageUploadedArtikelForm";
-import { useHistory } from "react-router-dom";
 
 function ArtikelForm({
   artikelId,
@@ -33,7 +32,6 @@ function ArtikelForm({
   handleSetDefaultImage,
 }) {
   const [Prompt, setDirty, setPristine] = useUnsavedChangesWarning();
-  const history = useHistory();
   return (
     <Aux>
       {Prompt}
@@ -43,14 +41,7 @@ function ArtikelForm({
             initialValues={formikInitialValues}
             onSubmit={(values, actions) => {
               actions.setSubmitting(false);
-              const submit = handleSubmit(values);
-              if (submit) {
-                console.log(
-                  "🚀 ~ file: ArtikelForm.js ~ line 48 ~ submit",
-                  submit
-                );
-                history.push("/");
-              }
+              handleSubmit(values);
             }}
           >
             {(props) => (

@@ -1,5 +1,5 @@
 export default {
-  authenticaticationService: true,
+  authenticaticationService: false,
   DESPIN_API_URL: "http://localhost:3000/api",
   // ===================================================================================
   defaultPath: "/",

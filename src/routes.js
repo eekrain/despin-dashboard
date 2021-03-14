@@ -60,6 +60,10 @@ const ArtikelCreate = React.lazy(() =>
   import("./pages/artikel/CreateArtikel.container")
 );
 
+const ArtikelUpdate = React.lazy(() =>
+  import("./pages/artikel/UpdateArtikel.container")
+);
+
 // ====================================================================================================================
 const routes = [
   {
@@ -81,6 +85,13 @@ const routes = [
     exact: true,
     name: "Create New Artikel",
     component: ArtikelCreate,
+    private: true,
+  },
+  {
+    path: "/admin-web/artikel/:kategori/update/:hashedArtikelId",
+    exact: true,
+    name: "Update Artikel",
+    component: ArtikelUpdate,
     private: true,
   },
   {

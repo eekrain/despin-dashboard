@@ -1,25 +1,30 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useQuery, useQueryClient } from "react-query";
+import { Redirect } from "react-router-dom";
 import ArtikelIndex from ".";
 import PageLoading from "../../shared/components/PageLoading";
 import ArtikelService from "../../shared/services/artikel.service";
 
 function ArtikelIndexContainer() {
+  const [redirect, setRedirect] = useState(false);
   const [everSetKategoriSlug, setEverSetKategoriSlug] = useState(false);
   const [activeKategoriSlug, setActiveKategoriSlug] = useState("");
   const queryClient = useQueryClient();
-  const [, updateState] = useState();
-  const forceUpdate = useCallback(() => updateState({}), []);
+  const [refreshQuery, setResfreshQuery] = useState(1);
 
-  const listKategori = useQuery("kategoriList", async () => {
-    const data = ArtikelService.getArtikelKategoriList();
-    if (activeKategoriSlug === "") forceUpdate();
-    return data;
-  });
-
-  const listArtikel = useQuery(["artikelList", activeKategoriSlug], () =>
-    ArtikelService.getArtikelListByKategori(activeKategoriSlug)
+  const listKategori = useQuery(
+    "kategoriList",
+    ArtikelService.getArtikelKategoriList
   );
+
+  const listArtikel = useQuery(
+    ["artikelList", activeKategoriSlug, refreshQuery],
+    () => ArtikelService.getArtikelListByKategori(activeKategoriSlug)
+  );
+
+  if (redirect) {
+    return <Redirect push to={redirect} />;
+  }
 
   if (listKategori.isLoading && listArtikel.isLoading) {
     return <PageLoading />;
@@ -36,6 +41,12 @@ function ArtikelIndexContainer() {
       listArtikel={listArtikel.data}
       activeKategoriSlug={activeKategoriSlug}
       setActiveKategoriSlug={setActiveKategoriSlug}
+      setRedirect={setRedirect}
+      deletePublishedArtikelByHashedId={
+        ArtikelService.deletePublishedArtikelByHashedId
+      }
+      queryClient={queryClient}
+      setResfreshQuery={setResfreshQuery}
     />
   );
 }

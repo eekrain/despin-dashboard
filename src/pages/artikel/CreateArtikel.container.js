@@ -6,6 +6,7 @@ import { Editor } from "react-draft-wysiwyg";
 import TOOLBAR_OPTIONS from "../../editor.toolbar";
 import axios from "axios";
 import { useMutation, useQuery, useQueryClient } from "react-query";
+import { Redirect } from "react-router-dom";
 
 const handleUpload = (artikelId, acceptedFiles, queryClient) => {
   let data = new FormData();
@@ -40,12 +41,15 @@ const handleUpload = (artikelId, acceptedFiles, queryClient) => {
 
 const getNewArtikelUploadedImages = (artikelId) => {
   return axios
-    .get(`http://localhost:3000/api/v1/artikel/uploadImages/${artikelId}`, {
-      withCredentials: true,
-      headers: {
-        accept: "application/json",
-      },
-    })
+    .get(
+      `http://localhost:3000/api/v1/artikel/uploadImages/${artikelId}/TEMP`,
+      {
+        withCredentials: true,
+        headers: {
+          accept: "application/json",
+        },
+      }
+    )
     .then((response) => {
       console.log(
         "🚀 ~ file: ArtikelFormContainer.js ~ line 48 ~ .then ~ response",
@@ -56,10 +60,10 @@ const getNewArtikelUploadedImages = (artikelId) => {
 };
 
 const handleSetDefaultImage = (artikelId, hashedTempImageId, queryClient) => {
-  const dataSetDefaultImage = { artikelId, hashedTempImageId };
+  const dataSetDefaultImage = { artikelId, hashedTempImageId, type: "TEMP" };
   return axios
     .patch(
-      "http://localhost:3000/api/v1/artikel/setTempImageAsMainImage",
+      "http://localhost:3000/api/v1/artikel/setAsMainImage",
       dataSetDefaultImage,
       {
         withCredentials: true,
@@ -80,30 +84,31 @@ const handleSetDefaultImage = (artikelId, hashedTempImageId, queryClient) => {
     });
 };
 
-const handleSubmit = (formikValue) => {
-  return axios
-    .post("http://localhost:3000/api/v1/artikel", formikValue, {
-      withCredentials: true,
-      headers: {
-        accept: "application/json",
-      },
-    })
-    .then((response) => {
-      console.log(
-        "🚀 ~ file: ArtikelFormContainer.js ~ line 94 ~ handleSubmit ~ response",
-        response
-      );
-      return true;
-    })
-    .catch((error) => {
-      console.log(
-        "🚀 ~ file: ArtikelFormContainer.js ~ line 101 ~ .then ~ error",
-        error
-      );
-    });
-};
-
-const CreateArtikelContainer = () => {
+const CreateArtikelContainer = (props) => {
+  const categorySlug = props.match.params.kategori;
+  const [redirect, setRedirect] = useState(false);
+  const handleSubmit = async (formikValue) => {
+    await axios
+      .post("http://localhost:3000/api/v1/artikel", formikValue, {
+        withCredentials: true,
+        headers: {
+          accept: "application/json",
+        },
+      })
+      .then((response) => {
+        console.log(
+          "🚀 ~ file: ArtikelFormContainer.js ~ line 94 ~ handleSubmit ~ response",
+          response
+        );
+      })
+      .catch((error) => {
+        console.log(
+          "🚀 ~ file: ArtikelFormContainer.js ~ line 101 ~ .then ~ error",
+          error
+        );
+      });
+    setRedirect(true);
+  };
   const [artikelId] = useState(uuidv4());
   const queryClient = useQueryClient();
   const imagesUploaded = useQuery("imagesUploaded", () =>
@@ -121,10 +126,15 @@ const CreateArtikelContainer = () => {
   const [accordionKey, setAccordionKey] = useState(1);
   const formikInitialValues = {
     artikelId,
+    categorySlug,
     title: "",
     body: {},
     mainImageId: "",
   };
+
+  if (redirect) {
+    return <Redirect push to="/admin-web/artikel" />;
+  }
 
   return (
     <ArtikelForm

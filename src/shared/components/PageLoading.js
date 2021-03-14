@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col, Row } from "react-bootstrap";
 import Aux from "../../datta-able/hoc/_Aux";
 import Loader from "react-loader-spinner";
 
 function PageLoading() {
-  const [color] = useState("36D7B7");
   return (
     <Aux>
       <Row>
