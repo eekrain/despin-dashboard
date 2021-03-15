@@ -12,6 +12,10 @@ const getArtikelKategoriList = async () => {
       },
     }
   );
+  console.log(
+    "🚀 ~ file: artikel.service.js ~ line 17 ~ getArtikelKategoriList ~ response",
+    response.data
+  );
   return response.data;
 };
 

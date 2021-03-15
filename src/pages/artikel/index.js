@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Card,
   Col,
@@ -15,6 +15,8 @@ import ListLinkInsideCard from "./components/ListLinkInsideCard";
 import "./index.css";
 
 function ArtikelIndex({
+  accordionKey,
+  setAccordionKey,
   listKategori,
   listArtikel,
   activeKategoriSlug,
@@ -24,11 +26,21 @@ function ArtikelIndex({
   queryClient,
   setResfreshQuery,
 }) {
-  const [accordionKey, setAccordionKey] = useState(1);
   const activeKategoriName = () => {
-    if (!listKategori) return `List Artikel`;
-    const found = listKategori.find((cat) => cat.slug === activeKategoriSlug);
-    return `List Artikel ${found.name}`;
+    if (!listKategori || !listKategori.dinamis || !listKategori.statis)
+      return `List Artikel`;
+    let found;
+    let type;
+    found = listKategori.dinamis.find((cat) => cat.slug === activeKategoriSlug);
+    type = "Dinamis";
+
+    if (!found) {
+      found = listKategori.statis.find(
+        (cat) => cat.slug === activeKategoriSlug
+      );
+      type = "Statis";
+    }
+    return `List Artikel ${type} ${found.name}`;
   };
   return (
     <Aux>
@@ -54,13 +66,51 @@ function ArtikelIndex({
             <Collapse in={accordionKey === 1}>
               <div id="accordion1">
                 <Card.Body>
-                  {listKategori?.length > 1 ? (
-                    <ListLinkInsideCard
-                      listKategori={listKategori}
-                      activeKategoriSlug={activeKategoriSlug}
-                      setActiveKategoriSlug={setActiveKategoriSlug}
-                    />
-                  ) : null}
+                  {listKategori &&
+                    listKategori.dinamis &&
+                    listKategori.dinamis.length > 0 && (
+                      <ListLinkInsideCard
+                        listKategori={listKategori.dinamis}
+                        activeKategoriSlug={activeKategoriSlug}
+                        setActiveKategoriSlug={setActiveKategoriSlug}
+                        setRedirect={setRedirect}
+                      />
+                    )}
+                </Card.Body>
+              </div>
+            </Collapse>
+          </Card>
+
+          <Card>
+            <Card.Header>
+              <Card.Title
+                as="h5"
+                className="d-block w-100"
+                style={{ cursor: "pointer" }}
+              >
+                <div
+                  href={DEMO.BLANK_LINK}
+                  onClick={() => setAccordionKey(accordionKey !== 2 ? 2 : 0)}
+                  aria-controls="accordion1"
+                  aria-expanded={accordionKey === 2}
+                >
+                  Kategori Artikel
+                </div>
+              </Card.Title>
+            </Card.Header>
+            <Collapse in={accordionKey === 2}>
+              <div id="accordion1">
+                <Card.Body>
+                  {listKategori &&
+                    listKategori.statis &&
+                    listKategori.statis.length > 0 && (
+                      <ListLinkInsideCard
+                        listKategori={listKategori.statis}
+                        activeKategoriSlug={activeKategoriSlug}
+                        setActiveKategoriSlug={setActiveKategoriSlug}
+                        setRedirect={setRedirect}
+                      />
+                    )}
                 </Card.Body>
               </div>
             </Collapse>
@@ -125,32 +175,38 @@ const ListArtikelRow = ({
   queryClient,
   setResfreshQuery,
 }) => {
-  if (!listArtikel || listArtikel.length < 1) {
-    return "Belum ada artikel yang dibuat pada kategori ini.";
+  if (!listArtikel || listArtikel.length < 1 || !listArtikel.map) {
+    return (
+      <tr>
+        <td colSpan={4} className="text-center">
+          Belum ada artikel yang dibuat pada kategori ini.
+        </td>
+      </tr>
+    );
+  } else {
+    return listArtikel.map((artikel, index) => (
+      <tr key={artikel.slug} className="tb-row-v-center-50">
+        <td>{index + 1}</td>
+        <td>{artikel.title}</td>
+        <td>
+          {Intl.DateTimeFormat(["ban", "id"], {
+            dateStyle: "short",
+            timeStyle: "short",
+          }).format(new Date(artikel.createdAt))}
+        </td>
+        <td className="d-flex justify-content-around align-items-center">
+          <ButtonAction
+            artikel={artikel}
+            activeKategoriSlug={activeKategoriSlug}
+            setRedirect={setRedirect}
+            deletePublishedArtikelByHashedId={deletePublishedArtikelByHashedId}
+            queryClient={queryClient}
+            setResfreshQuery={setResfreshQuery}
+          />
+        </td>
+      </tr>
+    ));
   }
-
-  return listArtikel.map((artikel, index) => (
-    <tr key={artikel.slug} className="tb-row-v-center-50">
-      <td>{index + 1}</td>
-      <td>{artikel.title}</td>
-      <td>
-        {Intl.DateTimeFormat(["ban", "id"], {
-          dateStyle: "short",
-          timeStyle: "short",
-        }).format(new Date(artikel.createdAt))}
-      </td>
-      <td className="d-flex justify-content-around align-items-center">
-        <ButtonAction
-          artikel={artikel}
-          activeKategoriSlug={activeKategoriSlug}
-          setRedirect={setRedirect}
-          deletePublishedArtikelByHashedId={deletePublishedArtikelByHashedId}
-          queryClient={queryClient}
-          setResfreshQuery={setResfreshQuery}
-        />
-      </td>
-    </tr>
-  ));
 };
 
 const actions = [

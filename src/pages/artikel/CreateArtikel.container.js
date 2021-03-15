@@ -88,26 +88,21 @@ const CreateArtikelContainer = (props) => {
   const categorySlug = props.match.params.kategori;
   const [redirect, setRedirect] = useState(false);
   const handleSubmit = async (formikValue) => {
-    await axios
-      .post("http://localhost:3000/api/v1/artikel", formikValue, {
+    const response = await axios.post(
+      "http://localhost:3000/api/v1/artikel",
+      formikValue,
+      {
         withCredentials: true,
         headers: {
           accept: "application/json",
         },
-      })
-      .then((response) => {
-        console.log(
-          "🚀 ~ file: ArtikelFormContainer.js ~ line 94 ~ handleSubmit ~ response",
-          response
-        );
-      })
-      .catch((error) => {
-        console.log(
-          "🚀 ~ file: ArtikelFormContainer.js ~ line 101 ~ .then ~ error",
-          error
-        );
-      });
-    setRedirect(true);
+      }
+    );
+    console.log(
+      "🚀 ~ file: CreateArtikel.container.js ~ line 98 ~ handleSubmit ~ response",
+      response
+    );
+    setRedirect(`/admin-web/artikel/${categorySlug}`);
   };
   const [artikelId] = useState(uuidv4());
   const queryClient = useQueryClient();
@@ -133,7 +128,7 @@ const CreateArtikelContainer = (props) => {
   };
 
   if (redirect) {
-    return <Redirect push to="/admin-web/artikel" />;
+    return <Redirect push exact to={redirect} />;
   }
 
   return (

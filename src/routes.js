@@ -81,6 +81,13 @@ const routes = [
     private: true,
   },
   {
+    path: "/admin-web/artikel/:kategori",
+    exact: true,
+    name: "Artikel",
+    component: ArtikelIndex,
+    private: true,
+  },
+  {
     path: "/admin-web/artikel/:kategori/create",
     exact: true,
     name: "Create New Artikel",

@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import { useQuery, useQueryClient } from "react-query";
-import { Redirect } from "react-router-dom";
 import ArtikelIndex from ".";
 import PageLoading from "../../shared/components/PageLoading";
 import ArtikelService from "../../shared/services/artikel.service";
 
-function ArtikelIndexContainer() {
+function ArtikelIndexContainer(props) {
+  console.log(
+    "🚀 ~ file: index.container.js ~ line 9 ~ ArtikelIndexContainer ~ props",
+    props
+  );
+  const categorySlug = props.match.params.kategori;
   const [redirect, setRedirect] = useState(false);
   const [everSetKategoriSlug, setEverSetKategoriSlug] = useState(false);
   const [activeKategoriSlug, setActiveKategoriSlug] = useState("");
   const queryClient = useQueryClient();
   const [refreshQuery, setResfreshQuery] = useState(1);
+  const [accordionKey, setAccordionKey] = useState(1);
 
   const listKategori = useQuery(
     "kategoriList",
@@ -23,7 +28,8 @@ function ArtikelIndexContainer() {
   );
 
   if (redirect) {
-    return <Redirect push to={redirect} />;
+    setRedirect(false);
+    props.history.push(redirect);
   }
 
   if (listKategori.isLoading && listArtikel.isLoading) {
@@ -31,12 +37,19 @@ function ArtikelIndexContainer() {
   }
 
   if (!listKategori.isLoading && !everSetKategoriSlug) {
-    setActiveKategoriSlug(listKategori.data[0].slug);
+    if (categorySlug) setActiveKategoriSlug(categorySlug);
+    else setActiveKategoriSlug(listKategori.data.dinamis[0].slug);
+
+    if (listKategori.data.dinamis.find((cat) => cat.slug === categorySlug))
+      setAccordionKey(1);
+    else setAccordionKey(2);
     setEverSetKategoriSlug(true);
   }
 
   return (
     <ArtikelIndex
+      accordionKey={accordionKey}
+      setAccordionKey={setAccordionKey}
       listKategori={listKategori.data}
       listArtikel={listArtikel.data}
       activeKategoriSlug={activeKategoriSlug}
