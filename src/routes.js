@@ -52,7 +52,17 @@ const OtherDocs = React.lazy(() => import("./datta-able/Demo/Other/Docs"));
 
 // ====================================================================================================================
 
-const ArtikelCreate = React.lazy(() => import("./pages/artikel/create"));
+const ArtikelIndex = React.lazy(() =>
+  import("./pages/artikel/index.container")
+);
+
+const ArtikelCreate = React.lazy(() =>
+  import("./pages/artikel/CreateArtikel.container")
+);
+
+const ArtikelUpdate = React.lazy(() =>
+  import("./pages/artikel/UpdateArtikel.container")
+);
 
 // ====================================================================================================================
 const routes = [
@@ -67,7 +77,28 @@ const routes = [
     path: "/admin-web/artikel",
     exact: true,
     name: "Artikel",
+    component: ArtikelIndex,
+    private: true,
+  },
+  {
+    path: "/admin-web/artikel/:kategori",
+    exact: true,
+    name: "Artikel",
+    component: ArtikelIndex,
+    private: true,
+  },
+  {
+    path: "/admin-web/artikel/:kategori/create",
+    exact: true,
+    name: "Create New Artikel",
     component: ArtikelCreate,
+    private: true,
+  },
+  {
+    path: "/admin-web/artikel/:kategori/update/:hashedArtikelId",
+    exact: true,
+    name: "Update Artikel",
+    component: ArtikelUpdate,
     private: true,
   },
   {

@@ -1,0 +1,8 @@
+.container-list-image-uploaded {
+  display: flex;
+  justify-content: center;
+}
+
+.container-list-image-uploaded img {
+  width: 70px;
+}
