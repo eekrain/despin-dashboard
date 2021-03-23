@@ -1,6 +1,5 @@
 export default {
   authenticaticationService: false,
-  tes_env: process.env.REACT_APP_ENVIRONMENT,
   DESPIN_API_URL:
     process.env.REACT_APP_ENVIRONMENT === "production"
       ? "https://pageraji.despin.id/api"

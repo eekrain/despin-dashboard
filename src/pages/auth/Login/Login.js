@@ -96,7 +96,6 @@ function Login({ handleSubmit }) {
                       <NavLink to="/auth/reset-password-1">Reset</NavLink>
                     </p>
                     <pre>{JSON.stringify(values)}</pre>
-                    <pre>{`anjingg : ${config.tes_env}`}</pre>
                   </div>
                 </Form>
               )}
