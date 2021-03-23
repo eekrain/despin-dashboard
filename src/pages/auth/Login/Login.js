@@ -9,7 +9,6 @@ import { Formik, Form } from "formik";
 import WrapInput from "../../../shared/components/formik/WrapInput";
 import DisplayError from "../../../shared/components/formik/DisplayError";
 import { Errlang } from "../../../shared/components/formik/ErrorLanguage";
-import config from "../../../config";
 
 function Login({ handleSubmit }) {
   return (
