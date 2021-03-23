@@ -1,6 +1,10 @@
 export default {
   authenticaticationService: false,
-  DESPIN_API_URL: "http://localhost:3000/api",
+  tes_env: process.env.REACT_APP_ENVIRONMENT,
+  DESPIN_API_URL:
+    process.env.REACT_APP_ENVIRONMENT === "production"
+      ? "https://pageraji.despin.id/api"
+      : "http://localhost:3000/api",
   // ===================================================================================
   defaultPath: "/",
   basename: "/admin/app", // only at build time to set, like /datta-able
