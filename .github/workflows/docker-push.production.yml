@@ -2,11 +2,11 @@ name: Despin Dashboard - Docker Test and Push to Staging
 
 on:
   pull_request:
-    branches: [staging]
+    branches: [production]
 
 env:
   # TODO: Change variable to your image's name.
-  IMAGE_NAME: habitapps/despin-dashboard-staging:latest
+  IMAGE_NAME: habitapps/despin-dashboard-production:latest
 
 jobs:
   # Push image to GitHub Packages.
@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build . --file Dockerfile.staging --tag $IMAGE_NAME
+        run: docker build . --file Dockerfile.prod --tag $IMAGE_NAME
 
       - name: Log into registry
         env:
