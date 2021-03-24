@@ -7,6 +7,7 @@ import TOOLBAR_OPTIONS from "../../editor.toolbar";
 import axios from "axios";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { Redirect } from "react-router-dom";
+import config from "../../config";
 
 const handleUpload = (artikelId, acceptedFiles, queryClient) => {
   let data = new FormData();
@@ -16,7 +17,7 @@ const handleUpload = (artikelId, acceptedFiles, queryClient) => {
   });
 
   return axios
-    .post("http://localhost:3000/api/v1/artikel/uploadImages", data, {
+    .post(`${config.DESPIN_API_URL}/v1/artikel/uploadImages`, data, {
       headers: {
         accept: "application/json",
         "Accept-Language": "en-US,en;q=0.8",
@@ -41,15 +42,12 @@ const handleUpload = (artikelId, acceptedFiles, queryClient) => {
 
 const getNewArtikelUploadedImages = (artikelId) => {
   return axios
-    .get(
-      `http://localhost:3000/api/v1/artikel/uploadImages/${artikelId}/TEMP`,
-      {
-        withCredentials: true,
-        headers: {
-          accept: "application/json",
-        },
-      }
-    )
+    .get(`${config.DESPIN_API_URL}/v1/artikel/uploadImages/${artikelId}/TEMP`, {
+      withCredentials: true,
+      headers: {
+        accept: "application/json",
+      },
+    })
     .then((response) => {
       console.log(
         "🚀 ~ file: ArtikelFormContainer.js ~ line 48 ~ .then ~ response",
@@ -63,7 +61,7 @@ const handleSetDefaultImage = (artikelId, hashedTempImageId, queryClient) => {
   const dataSetDefaultImage = { artikelId, hashedTempImageId, type: "TEMP" };
   return axios
     .patch(
-      "http://localhost:3000/api/v1/artikel/setAsMainImage",
+      `${config.DESPIN_API_URL}/v1/artikel/setAsMainImage`,
       dataSetDefaultImage,
       {
         withCredentials: true,
@@ -89,7 +87,7 @@ const CreateArtikelContainer = (props) => {
   const [redirect, setRedirect] = useState(false);
   const handleSubmit = async (formikValue) => {
     const response = await axios.post(
-      "http://localhost:3000/api/v1/artikel",
+      `${config.DESPIN_API_URL}/v1/artikel`,
       formikValue,
       {
         withCredentials: true,

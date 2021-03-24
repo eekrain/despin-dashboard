@@ -16,6 +16,7 @@ import { v4 as uuidv4 } from "uuid";
 import useUnsavedChangesWarning from "../../shared/hooks/useUnsavedChangesWarning";
 import FormikEffect from "../../shared/hooks/FormikEffect";
 import * as Yup from "yup";
+import config from "../../config";
 
 function ArtikelCreate() {
   const [createId] = useState(uuidv4());
@@ -37,7 +38,7 @@ function ArtikelCreate() {
       });
 
       axios
-        .post("http://localhost:3000/api/artikel/uploadImage", data, {
+        .post(`${config.DESPIN_API_URL}/artikel/uploadImage`, data, {
           headers: {
             accept: "application/json",
             "Accept-Language": "en-US,en;q=0.8",
