@@ -1,4 +1,4 @@
-name: Despin Dashboard - Docker Test and Push to Staging
+name: Despin Dashboard - Docker Test and Push to Production
 
 on:
   pull_request:
