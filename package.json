@@ -42,6 +42,8 @@
   },
   "scripts": {
     "start": "cross-env PORT=5000 REACT_APP_ENVIRONMENT=development react-scripts start",
+    "start:staging": "cross-env PORT=5000 REACT_APP_ENVIRONMENT=staging react-scripts start",
+    "start:prod": "cross-env PORT=5000 REACT_APP_ENVIRONMENT=production react-scripts start",
     "build-local": "cross-env PORT=5000 REACT_APP_ENVIRONMENT=development CI=false react-scripts build",
     "build-staging": "cross-env PORT=5000 REACT_APP_ENVIRONMENT=staging CI=false react-scripts build",
     "build-production": "cross-env PORT=5000 REACT_APP_ENVIRONMENT=production CI=false react-scripts build",
