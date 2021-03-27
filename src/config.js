@@ -1,3 +1,4 @@
+// mantap
 export default {
   authenticaticationService: false,
   DESPIN_API_URL:
