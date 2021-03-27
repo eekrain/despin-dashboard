@@ -2,9 +2,9 @@ export default {
   authenticaticationService: false,
   DESPIN_API_URL:
     process.env.REACT_APP_ENVIRONMENT === "production"
-      ? "http://pageraji.despin.id/api"
+      ? "https://pageraji.despin.id/api"
       : process.env.REACT_APP_ENVIRONMENT === "staging"
-      ? "http://pageraji-staging.despin.id/api"
+      ? "https://pageraji-staging.despin.id/api"
       : "http://localhost:3000/api",
   // ===================================================================================
   defaultPath: "/",
