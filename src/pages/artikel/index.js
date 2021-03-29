@@ -158,7 +158,6 @@ function ArtikelIndex({
                   )}
                 </tbody>
               </Table>
-              <pre>{JSON.stringify(listArtikel)}</pre>
             </Card.Body>
           </Card>
         </Col>

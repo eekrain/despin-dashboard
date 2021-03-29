@@ -113,8 +113,6 @@ function ArtikelForm({
                       </Collapse>
                     </Card>
                   </Col>
-
-                  <pre>{JSON.stringify(props.values, null, 2)}</pre>
                 </Row>
                 <Row>
                   <Col>
