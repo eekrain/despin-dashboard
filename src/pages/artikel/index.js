@@ -59,7 +59,7 @@ function ArtikelIndex({
                   aria-controls="accordion1"
                   aria-expanded={accordionKey === 1}
                 >
-                  Kategori Artikel
+                  Kategori Artikel Dinamis
                 </div>
               </Card.Title>
             </Card.Header>
@@ -94,7 +94,7 @@ function ArtikelIndex({
                   aria-controls="accordion1"
                   aria-expanded={accordionKey === 2}
                 >
-                  Kategori Artikel
+                  Kategori Artikel Statis
                 </div>
               </Card.Title>
             </Card.Header>
