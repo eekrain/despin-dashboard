@@ -1,15 +1,23 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+react-sortable-hoc# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+/.idea/crema.iml
+/.idea/dictionaries/yogi0.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/.idea/*
 
 # testing
 /coverage
 
 # production
-/build
+/.next
 
 # misc
 .DS_Store
