@@ -10,7 +10,7 @@ const crmData: CRM = {
       type: 'MDSA7',
       amount: '$2,465,867',
       created: '23 Jan, 2019',
-      logo: '/images/companyLogos/apple.png',
+      logo: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/companyLogos/apple.png`,
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const crmData: CRM = {
       type: 'MDSA7',
       amount: '$1,465,867',
       created: '12 Jan, 2019',
-      logo: '/images/companyLogos/adidas.png',
+      logo: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/companyLogos/adidas.png`,
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const crmData: CRM = {
       type: 'MDSA7',
       amount: '$5,465,867',
       created: '23 Apr, 2019',
-      logo: '/images/companyLogos/microsoft.png',
+      logo: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/companyLogos/microsoft.png`,
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ const crmData: CRM = {
       type: 'MDSA7',
       amount: '$3,465,867',
       created: '28 Feb, 2019',
-      logo: '/images/companyLogos/netflix.png',
+      logo: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/companyLogos/netflix.png`,
     },
     {
       id: 5,
@@ -46,7 +46,7 @@ const crmData: CRM = {
       type: 'MDSA7',
       amount: '$4,465,867',
       created: '21 Mar, 2019',
-      logo: '/images/companyLogos/instagram.png',
+      logo: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/companyLogos/instagram.png`,
     },
     {
       id: 6,
@@ -55,7 +55,7 @@ const crmData: CRM = {
       type: 'MDSA7',
       amount: '$5,465,867',
       created: '23 Apr, 2019',
-      logo: '/images/companyLogos/microsoft.png',
+      logo: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/companyLogos/microsoft.png`,
     },
   ],
   earningGraphData: [

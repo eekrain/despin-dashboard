@@ -53,7 +53,7 @@ const chatList: MessageObj[] = [
         message: 'ok, will do it',
         message_type: MessageType.MEDIA,
         media: {
-          url: '/images/illustration.png',
+          url: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/illustration.png`,
           mime_type: 'image',
           file_name: 'illustration.png',
           file_size: 12332,
@@ -66,7 +66,7 @@ const chatList: MessageObj[] = [
         message: 'ok, will do it',
         message_type: MessageType.MEDIA,
         media: {
-          url: '/images/bitcoin1.png',
+          url: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/bitcoin1.png`,
           mime_type: 'image',
           file_name: 'bitcoin1.jpg',
           file_size: 12332,
@@ -79,7 +79,7 @@ const chatList: MessageObj[] = [
         message: 'ok, will do it',
         message_type: MessageType.DOC,
         media: {
-          url: '/images/crema docs.txt',
+          url: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/crema docs.txt`,
           mime_type: 'image',
           file_name: 'crema docs.txt',
           file_size: 12332,
@@ -92,7 +92,7 @@ const chatList: MessageObj[] = [
         message: 'ok, will do it',
         message_type: MessageType.DOC,
         media: {
-          url: '/images/crema docs.txt',
+          url: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/crema docs.txt`,
           mime_type: 'image',
           file_name: 'crema docs.txt',
           file_size: 1232232,
@@ -152,7 +152,7 @@ const chatList: MessageObj[] = [
         message: '!',
         message_type: MessageType.MEDIA,
         media: {
-          url: '/images/illustration.png',
+          url: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/illustration.png`,
           mime_type: 'image',
           file_name: 'illustration.png',
           file_size: 12332,
@@ -211,7 +211,7 @@ const chatList: MessageObj[] = [
         sender: 7,
         message_type: MessageType.MEDIA,
         media: {
-          url: '/images/illustration.png',
+          url: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/illustration.png`,
           mime_type: 'image',
           file_name: 'illustration.png',
           file_size: 12332,
@@ -270,7 +270,7 @@ const chatList: MessageObj[] = [
         sender: 10,
         message_type: MessageType.MEDIA,
         media: {
-          url: '/images/illustration.png',
+          url: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/illustration.png`,
           mime_type: 'image',
           file_name: 'illustration.png',
           file_size: 12332,
@@ -315,7 +315,7 @@ const chatList: MessageObj[] = [
         sender: 'sender_id',
         message_type: MessageType.MEDIA,
         media: {
-          url: '/images/illustration.png',
+          url: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/illustration.png`,
           mime_type: 'image',
           file_name: 'illustration.png',
           file_size: 12332,
@@ -360,7 +360,7 @@ const chatList: MessageObj[] = [
         sender: 'sender_id',
         message_type: MessageType.MEDIA,
         media: {
-          url: '/images/illustration.png',
+          url: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/illustration.png`,
           mime_type: 'image',
           file_name: 'illustration.png',
           file_size: 12332,
@@ -391,7 +391,7 @@ const chatList: MessageObj[] = [
         sender: 7,
         message_type: MessageType.MEDIA,
         media: {
-          url: '/images/illustration.png',
+          url: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/illustration.png`,
           mime_type: 'image',
           file_name: 'illustration.png',
           file_size: 12332,
@@ -450,7 +450,7 @@ const chatList: MessageObj[] = [
         sender: 21,
         message_type: MessageType.MEDIA,
         media: {
-          url: '/images/illustration.png',
+          url: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/illustration.png`,
           mime_type: 'image',
           file_name: 'illustration.png',
           file_size: 12332,

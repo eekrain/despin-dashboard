@@ -27,7 +27,7 @@ class AppErrorBoundary extends React.Component<{}, {hasError: boolean}> {
           flexDirection='column'
           justifyContent='center'
           flex={1}>
-          <img src={'/images/error.png'} alt='Error Info' />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/error.png`} alt='Error Info' />
           <Box component='h2' fontSize={30} mt={4}>
             Ah! Something went wrong.
           </Box>

@@ -28,8 +28,8 @@ const AppLogo = () => {
           className={classes.logo}
           src={
             themeMode === ThemeMode.DARK
-              ? '/images/logo-pageraji.png'
-              : '/images/logo-pageraji.png'
+              ? `${process.env.NEXT_PUBLIC_BASE_PATH}/images/logo-pageraji.png`
+              : `${process.env.NEXT_PUBLIC_BASE_PATH}/images/logo-pageraji.png`
           }
           alt='crema-logo'
         />
@@ -40,8 +40,8 @@ const AppLogo = () => {
             className={classes.logo}
             src={
               themeMode === ThemeMode.DARK
-                ? '/images/logo-pageraji.png'
-                : '/images/logo-pageraji.png'
+                ? `${process.env.NEXT_PUBLIC_BASE_PATH}/images/logo-pageraji.png`
+                : `${process.env.NEXT_PUBLIC_BASE_PATH}/images/logo-pageraji.png`
             }
             alt='crema-logo'
           />
