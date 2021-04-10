@@ -299,7 +299,7 @@ const cryptoData: Crypto = {
       news:
         'Power Ledger’s Jemma Green Is Fighting Climate Change by Helping Trade Neighbors Energy. Binance Coin Spikes Almost 20 Percent as...',
       created: '16 mins',
-      image: '/images/bitcoin1.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/bitcoin1.png`,
       by: 'BTC EHTD USD',
     },
     {
@@ -307,7 +307,7 @@ const cryptoData: Crypto = {
       news:
         'Binance Coin Spikes Almost 20 Percent as Bitcoin and Crypto Market Take a Break After Red Wave. Bitcoin with other major coins have dropped...',
       created: '45 mins',
-      image: '/images/bitcoin2.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/bitcoin2.png`,
       by: 'BTC EHTD USD',
     },
     {
@@ -315,7 +315,7 @@ const cryptoData: Crypto = {
       news:
         'Power Ledger’s Jemma Green Is Fighting Climate Change by Helping Trade Neighbors Energy. Binance Coin Spikes Almost 20 Percent as...',
       created: '1 Hrs',
-      image: '/images/bitcoin3.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/bitcoin3.png`,
       by: 'BTC EHTD USD',
     },
   ],
@@ -327,7 +327,7 @@ const cryptoData: Crypto = {
       marketCap: '129,820,932',
       volume: '25,111,773',
       h: '2.50',
-      image: '/images/bitcoin.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/bitcoin.png`,
       color: orange[600],
     },
     {
@@ -337,7 +337,7 @@ const cryptoData: Crypto = {
       marketCap: '24,909,820',
       volume: '12,344,434',
       h: '0.45',
-      image: '/images/etherium.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/etherium.png`,
       color: 'black',
     },
     {
@@ -347,7 +347,7 @@ const cryptoData: Crypto = {
       marketCap: '137,334,223',
       volume: '43,434,213',
       h: '3.43',
-      image: '/images/litcoin.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/litcoin.png`,
       color: blue[400],
     },
     {
@@ -357,7 +357,7 @@ const cryptoData: Crypto = {
       marketCap: '21,445,237',
       volume: '32,324,655',
       h: '0.93',
-      image: '/images/bitcoin.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/bitcoin.png`,
       color: orange[500],
     },
     {
@@ -367,7 +367,7 @@ const cryptoData: Crypto = {
       marketCap: '124,674,765',
       volume: '94,342,323',
       h: '.30',
-      image: '/images/bitcoin.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/bitcoin.png`,
       color: blue[600],
     },
   ],

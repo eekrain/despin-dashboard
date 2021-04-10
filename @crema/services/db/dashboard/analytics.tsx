@@ -24,7 +24,7 @@ const analyticsData: Analytics = {
       type: 'REVENUE',
       value: '$3,732',
       growth: 2.5,
-      icon: '/images/dashboard/icon_revenue.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/icon_revenue.png`,
       strokeColor: '#f44d50',
       graphData: [
         {month: 'Aug', number: 310},
@@ -39,7 +39,7 @@ const analyticsData: Analytics = {
       type: 'TODAY VISITS',
       value: '882',
       growth: 3.7,
-      icon: '/images/dashboard/icon_visits.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/icon_visits.png`,
       strokeColor: '#f49820',
       graphData: [
         {month: 'Jan', number: 20},
@@ -56,25 +56,25 @@ const analyticsData: Analytics = {
 
       amount: '3510',
       type: 'Author Sales',
-      icon: '/images/dashboard/auther_sales.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/auther_sales.png`,
     },
     {
       id: 2,
       amount: '390',
       type: 'Commissions',
-      icon: '/images/dashboard/commission_sale.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/commission_sale.png`,
     },
     {
       id: 3,
       amount: '3.2M',
       type: 'All Time Revenue',
-      icon: '/images/dashboard/all_time_sales.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/all_time_sales.png`,
     },
     {
       id: 4,
       amount: '3.5M',
       type: 'All Time Sales',
-      icon: '/images/dashboard/commission_sale.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/commission_sale.png`,
     },
   ],
   salesChartData: [
@@ -128,7 +128,7 @@ const analyticsData: Analytics = {
   topSellingProduct: [
     {
       id: 1,
-      icon: '/images/dashboard/product_image_1.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/product_image_1.png`,
       name: 'Antler Theme',
       description: 'Reference site about.',
       price: 6790,
@@ -137,7 +137,7 @@ const analyticsData: Analytics = {
     },
     {
       id: 1,
-      icon: '/images/dashboard/product_image_2.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/product_image_2.png`,
       name: 'Live Chat Support',
       description: 'information on its origins.',
       price: 4430,
@@ -146,7 +146,7 @@ const analyticsData: Analytics = {
     },
     {
       id: 1,
-      icon: '/images/dashboard/product_image_3.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/product_image_3.png`,
       name: 'Puzzle Mask',
       description: 'information Lipsum generator.',
       price: 2330,
@@ -334,21 +334,21 @@ const analyticsData: Analytics = {
   infoWidgets: [
     {
       id: 1,
-      icon: '/images/dashboard/icon_phone.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/icon_phone.png`,
       count: 5623,
       details: 'Mobile Devices',
       bgColor: '#0698ED',
     },
     {
       id: 2,
-      icon: '/images/dashboard/icon_desktop.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/icon_desktop.png`,
       count: 7632,
       details: 'Desktop BrowserData',
       bgColor: '#9F4AE7',
     },
     {
       id: 3,
-      icon: '/images/dashboard/icon_android.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/icon_android.png`,
       count: 1234,
       details: 'Android Apps',
       bgColor: '#41C589',

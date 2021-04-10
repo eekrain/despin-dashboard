@@ -3,7 +3,7 @@ import {Metrics} from '../../../../types/models/dashboards/Metrics';
 
 const metricsData: Metrics = {
   ordersThisYear: '2,380',
-  queryIcon: '/images/metricsIcons/querries.png',
+  queryIcon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/metricsIcons/querries.png`,
   revenueThisYear: '10,380',
   visitsThisYear: '1,22,380',
   queriesThisYear: '22,563',

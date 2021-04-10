@@ -57,7 +57,7 @@ export default function PrimarySearchAppBar() {
           aria-label='show 17 new notifications'>
           <img
             className={classes.logoRoot}
-            src={'/images/logo-icon-large.png'}
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/logo-icon-large.png`}
             alt='crema-logo'
           />
         </IconButton>

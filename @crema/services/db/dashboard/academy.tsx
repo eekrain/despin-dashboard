@@ -10,7 +10,7 @@ const academyData: Academy = {
       new: 'New $50',
       badgeColor: '#FB9C3B',
       bgcolor: '#FFF5EB',
-      icon: '/images/dashboard/academy/salesIcon.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/salesIcon.png`,
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const academyData: Academy = {
       new: 'New 125',
       badgeColor: '#0A8FDC',
       bgcolor: '#EBF6FC',
-      icon: '/images/dashboard/academy/enrollIcon.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/enrollIcon.png`,
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const academyData: Academy = {
       new: 'New 5',
       badgeColor: '#FD3A84',
       bgcolor: '#FFEFF5',
-      icon: '/images/dashboard/academy/coursesIcon.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/coursesIcon.png`,
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ const academyData: Academy = {
       new: 'New 245',
       badgeColor: '#31AB59',
       bgcolor: '#EAF7EE',
-      icon: '/images/dashboard/academy/studentsIcon.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/studentsIcon.png`,
     },
   ],
   courseCategories: [
@@ -49,15 +49,15 @@ const academyData: Academy = {
       xp: 45,
       images: [
         {
-          image: '/images/dashboard/academy/design.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/design.png`,
           title: 'image 1',
         },
         {
-          image: '/images/dashboard/academy/design.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/design.png`,
           title: 'image 2',
         },
         {
-          image: '/images/dashboard/academy/design.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/design.png`,
           title: 'image 3',
         },
       ],
@@ -70,15 +70,15 @@ const academyData: Academy = {
       xp: 45,
       images: [
         {
-          image: '/images/dashboard/academy/development.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/development.png`,
           title: 'image 1',
         },
         {
-          image: '/images/dashboard/academy/development.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/development.png`,
           title: 'image 2',
         },
         {
-          image: '/images/dashboard/academy/development.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/development.png`,
           title: 'image 3',
         },
       ],
@@ -91,15 +91,15 @@ const academyData: Academy = {
       xp: 45,
       images: [
         {
-          image: '/images/dashboard/academy/marketing.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/marketing.png`,
           title: 'image 1',
         },
         {
-          image: '/images/dashboard/academy/marketing.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/marketing.png`,
           title: 'image 2',
         },
         {
-          image: '/images/dashboard/academy/marketing.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/marketing.png`,
           title: 'image 3',
         },
       ],
@@ -112,15 +112,15 @@ const academyData: Academy = {
       xp: 45,
       images: [
         {
-          image: '/images/dashboard/academy/it.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/it.png`,
           title: 'image 1',
         },
         {
-          image: '/images/dashboard/academy/it.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/it.png`,
           title: 'image 2',
         },
         {
-          image: '/images/dashboard/academy/it.png',
+          image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/it.png`,
           title: 'image 3',
         },
       ],
@@ -149,7 +149,7 @@ const academyData: Academy = {
         duration: '4 Feb 2020 - 22 Feb 2020',
         rating: 8.7,
         isCompleted: false,
-        thumb: '/images/dashboard/academy/ui.png',
+        thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/ui.png`,
       },
       {
         id: 2,
@@ -157,7 +157,7 @@ const academyData: Academy = {
         duration: '4 Mar 2020 - 22 Mar 2020',
         rating: 8.7,
         isCompleted: false,
-        thumb: '/images/dashboard/academy/logoDsign.png',
+        thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/logoDsign.png`,
       },
       {
         id: 3,
@@ -165,7 +165,7 @@ const academyData: Academy = {
         duration: '4 Apr 2020 - 22 Apr 2020',
         rating: 8.7,
         isCompleted: true,
-        thumb: '/images/dashboard/academy/digitalMarketing.png',
+        thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/digitalMarketing.png`,
       },
       {
         id: 4,
@@ -173,7 +173,7 @@ const academyData: Academy = {
         duration: '4 May 2020 - 22 May 2020',
         rating: 8.7,
         isCompleted: false,
-        thumb: '/images/dashboard/academy/webDevelopment.png',
+        thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/webDevelopment.png`,
       },
     ],
   },
@@ -223,7 +223,7 @@ const academyData: Academy = {
     {
       id: 1,
       title: 'UI & UX Designing',
-      thumb: '/images/dashboard/academy/ui.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/ui.png`,
       level: 'Advance level',
       coveredDuration: '35 hours',
       totalDuration: '75 hours',
@@ -245,7 +245,7 @@ const academyData: Academy = {
     {
       id: 2,
       title: 'Logo Design',
-      thumb: '/images/dashboard/academy/logoDsign.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/logoDsign.png`,
       level: 'Elementary level',
       coveredDuration: '35 hours',
       totalDuration: '75 hours',
@@ -267,7 +267,7 @@ const academyData: Academy = {
     {
       id: 3,
       title: 'Typography',
-      thumb: '/images/dashboard/academy/digitalMarketing.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/digitalMarketing.png`,
       level: 'Elementary level',
       coveredDuration: '35 hours',
       totalDuration: '75 hours',
@@ -290,7 +290,7 @@ const academyData: Academy = {
   learningData: [
     {
       id: 1,
-      icon: '/images/dashboard/academy/learning1.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/learning1.png`,
       title: 'Target Audience Learning',
       desc:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
@@ -298,7 +298,7 @@ const academyData: Academy = {
     },
     {
       id: 2,
-      icon: '/images/dashboard/academy/learning2.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/learning2.png`,
       title: 'The Complete Web',
       desc:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
@@ -306,7 +306,7 @@ const academyData: Academy = {
     },
     {
       id: 3,
-      icon: '/images/dashboard/academy/learning3.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/learning3.png`,
       title: 'Grow your community',
       desc:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
@@ -314,7 +314,7 @@ const academyData: Academy = {
     },
     {
       id: 4,
-      icon: '/images/dashboard/academy/learning1.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/learning1.png`,
       title: 'Target Audience Learning',
       desc:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
@@ -336,31 +336,31 @@ const academyData: Academy = {
       id: 1,
       name: 'Adobe XD - Prototype',
       percent: 96,
-      icon: '/images/dashboard/academy/class.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/class.png`,
     },
     {
       id: 2,
       name: 'Designing - Prototype',
       percent: 34,
-      icon: '/images/dashboard/academy/class.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/class.png`,
     },
     {
       id: 3,
       name: 'Development - Prototype',
       percent: 65,
-      icon: '/images/dashboard/academy/class.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/class.png`,
     },
     {
       id: 4,
       name: 'Python - Prototype',
       percent: 23,
-      icon: '/images/dashboard/academy/class.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/class.png`,
     },
     {
       id: 5,
       name: 'Project',
       percent: 87,
-      icon: '/images/dashboard/academy/class.png',
+      icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/class.png`,
     },
   ],
   studentRankings: [
@@ -419,28 +419,28 @@ const academyData: Academy = {
   relatedCourses: [
     {
       id: 1,
-      image: '/images/dashboard/academy/relatedCourse1.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/relatedCourse1.png`,
       title: 'How to attract client 1st time',
       author: 'Patya pindo',
       views: '1.5k',
     },
     {
       id: 2,
-      image: '/images/dashboard/academy/relatedCourse2.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/relatedCourse2.png`,
       title: 'How to secure good marks',
       author: 'Patya pindo',
       views: '1.8k',
     },
     {
       id: 3,
-      image: '/images/dashboard/academy/relatedCourse1.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/relatedCourse1.png`,
       title: 'How to attract client 1st time',
       author: 'Patya pindo',
       views: '1.5k',
     },
     {
       id: 4,
-      image: '/images/dashboard/academy/relatedCourse2.png',
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/academy/relatedCourse2.png`,
       title: 'How to secure good marks',
       author: 'Patya pindo',
       views: '1.8k',

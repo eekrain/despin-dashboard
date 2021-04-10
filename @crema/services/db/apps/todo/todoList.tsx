@@ -29,7 +29,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     folderValue: 121,
     schedule: 'Oct 18, 2019 8:30 PM',
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 501,
       name: 'Johnson',
@@ -81,7 +81,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 17, 2019 8:30 PM',
     folderValue: 123,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 502,
       name: 'Joe Root',
@@ -126,7 +126,7 @@ const todoList: TodoObj[] = [
     schedule: 'Oct 16, 2019 8:30 PM',
     isRead: true,
     folderValue: 124,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 503,
       name: 'Monty Panesar',
@@ -178,7 +178,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 15, 2019 8:30 PM',
     folderValue: 211,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 504,
       name: 'Darren Gough',
@@ -230,7 +230,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 14, 2019 8:30 PM',
     folderValue: 121,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 505,
       name: 'Andy Caddick',
@@ -282,7 +282,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 13, 2019 8:30 PM',
     folderValue: 126,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 506,
       name: 'Marcus Vaughan',
@@ -334,7 +334,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 12, 2019 8:30 PM',
     folderValue: 124,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 501,
       name: 'Johnson',
@@ -378,7 +378,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 11, 2019 8:30 PM',
     folderValue: 125,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 502,
       name: 'Joe Root',
@@ -430,7 +430,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 10, 2019 8:30 PM',
     folderValue: 121,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 503,
       name: 'Monty Panesar',
@@ -482,7 +482,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     folderValue: 125,
     schedule: 'Oct 09, 2019 8:30 PM',
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 504,
       name: 'Darren Gough',
@@ -526,7 +526,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 08, 2019 8:30 PM',
     folderValue: 124,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 505,
       name: 'Andy Caddick',
@@ -561,7 +561,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 07, 2019 8:30 PM',
     folderValue: 123,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 506,
       name: 'Marcus Vaughan',
@@ -613,7 +613,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 06, 2019 8:30 PM',
     folderValue: 121,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 501,
       name: 'Johnson',
@@ -648,7 +648,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 05, 2019 8:30 PM',
     folderValue: 121,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 502,
       name: 'Joe Root',
@@ -692,7 +692,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 04, 2019 8:30 PM',
     folderValue: 121,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 503,
       name: 'Monty Panesar',
@@ -744,7 +744,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 03, 2019 8:30 PM',
     folderValue: 121,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 501,
       name: 'Johnson',
@@ -779,7 +779,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 02, 2019 8:30 PM',
     folderValue: 121,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 502,
       name: 'Joe Root',
@@ -823,7 +823,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 02, 2019 5:30 PM',
     folderValue: 121,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 503,
       name: 'Monty Panesar',
@@ -874,7 +874,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     folderValue: 121,
     schedule: 'Oct 01, 2019 8:30 PM',
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 501,
       name: 'Johnson',
@@ -926,7 +926,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Oct 01, 2019 7:30 PM',
     folderValue: 123,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 502,
       name: 'Joe Root',
@@ -971,7 +971,7 @@ const todoList: TodoObj[] = [
     schedule: 'Oct 01, 2019 4:30 PM',
     isRead: true,
     folderValue: 124,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 503,
       name: 'Monty Panesar',
@@ -1023,7 +1023,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Sept 28, 2019 8:30 PM',
     folderValue: 211,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 504,
       name: 'Darren Gough',
@@ -1075,7 +1075,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Sept 21, 2019 7:30 PM',
     folderValue: 121,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 505,
       name: 'Andy Caddick',
@@ -1127,7 +1127,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Sept 21, 2019 7:30 PM',
     folderValue: 126,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 506,
       name: 'Marcus Vaughan',
@@ -1179,7 +1179,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Sept 20, 2019 7:30 PM',
     folderValue: 124,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 501,
       name: 'Johnson',
@@ -1223,7 +1223,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Sept 19, 2019 7:30 PM',
     folderValue: 125,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 502,
       name: 'Joe Root',
@@ -1275,7 +1275,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Sept 11, 2019 7:30 PM',
     folderValue: 121,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 503,
       name: 'Monty Panesar',
@@ -1327,7 +1327,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     folderValue: 125,
     schedule: 'Sept 10, 2019 7:30 PM',
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 504,
       name: 'Darren Gough',
@@ -1371,7 +1371,7 @@ const todoList: TodoObj[] = [
     sentAt: '10.30am',
     schedule: 'Sept 09, 2019 7:30 PM',
     folderValue: 124,
-    image: '/images/dummy2.jpg',
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/dummy2.jpg`,
     assignedTo: {
       id: 505,
       name: 'Andy Caddick',
