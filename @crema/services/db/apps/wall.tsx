@@ -55,39 +55,39 @@ export const wallData: WallData = {
   photos: [
     {
       id: 1,
-      thumb: '/images/wall/pic1.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/pic1.png`,
     },
     {
       id: 2,
-      thumb: '/images/wall/pic2.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/pic2.png`,
     },
     {
       id: 3,
-      thumb: '/images/wall/pic3.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/pic3.png`,
     },
     {
       id: 4,
-      thumb: '/images/wall/pic4.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/pic4.png`,
     },
     {
       id: 5,
-      thumb: '/images/wall/pic5.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/pic5.png`,
     },
     {
       id: 6,
-      thumb: '/images/wall/pic2.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/pic2.png`,
     },
     {
       id: 7,
-      thumb: '/images/wall/pic5.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/pic5.png`,
     },
     {
       id: 8,
-      thumb: '/images/wall/pic1.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/pic1.png`,
     },
     {
       id: 9,
-      thumb: '/images/wall/pic3.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/pic3.png`,
     },
   ],
   recentNews: [
@@ -160,31 +160,31 @@ export const wallData: WallData = {
       id: 1,
       name: 'Facebook Design',
       desc: 'It is a long established fact that a user will be diverted',
-      thumb: '/images/wall/suggestion.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/suggestion.png`,
     },
     {
       id: 2,
       name: 'React Developers',
       desc: 'It is a long established fact that a user will be diverted',
-      thumb: '/images/wall/suggestion.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/suggestion.png`,
     },
     {
       id: 3,
       name: 'Buy & Sell',
       desc: 'It is a long established fact that a user will be diverted',
-      thumb: '/images/wall/suggestion.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/suggestion.png`,
     },
     {
       id: 4,
       name: 'All about travel',
       desc: 'It is a long established fact that a user will be diverted',
-      thumb: '/images/wall/suggestion.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/suggestion.png`,
     },
     {
       id: 5,
       name: 'Javascript Lovers',
       desc: 'It is a long established fact that a user will be diverted',
-      thumb: '/images/wall/suggestion.png',
+      thumb: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/wall/suggestion.png`,
     },
   ],
 };
@@ -201,14 +201,14 @@ export const postsList: (PostObj | undefined)[] = [
     attachments: [
       {
         id: 5445,
-        path: '/images/timeline/berlin.jpg',
-        preview: '/images/timeline/berlin.jpg',
+        path: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/timeline/berlin.jpg`,
+        preview: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/timeline/berlin.jpg`,
         metaData: {type: 'images/jpg', size: 2343},
       },
       {
         id: 54546,
-        path: '/images/timeline/cairo.jpg',
-        preview: '/images/timeline/cairo.jpg',
+        path: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/timeline/cairo.jpg`,
+        preview: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/timeline/cairo.jpg`,
         metaData: {type: 'images/jpg', size: 2345},
       },
     ],
@@ -242,14 +242,14 @@ export const postsList: (PostObj | undefined)[] = [
     attachments: [
       {
         id: 5445,
-        path: '/images/timeline/berlin.jpg',
-        preview: '/images/timeline/berlin.jpg',
+        path: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/timeline/berlin.jpg`,
+        preview: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/timeline/berlin.jpg`,
         metaData: {type: 'images/jpg', size: 2343},
       },
       {
         id: 54546,
-        path: '/images/timeline/cairo.jpg',
-        preview: '/images/timeline/cairo.jpg',
+        path: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/timeline/cairo.jpg`,
+        preview: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/timeline/cairo.jpg`,
         metaData: {type: 'images/jpg', size: 2345},
       },
     ],
@@ -283,8 +283,8 @@ export const postsList: (PostObj | undefined)[] = [
     attachments: [
       {
         id: 54546,
-        path: '/images/timeline/cairo.jpg',
-        preview: '/images/timeline/cairo.jpg',
+        path: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/timeline/cairo.jpg`,
+        preview: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/timeline/cairo.jpg`,
         metaData: {type: 'images/jpg', size: 2345},
       },
     ],

@@ -15,7 +15,7 @@ const get_NEXT_PUBLIC_API_URL = () => {
 };
 
 module.exports = {
-  // basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
   env: {
     NEXT_PUBLIC_SITE_URL: get_NEXT_PUBLIC_SITE_URL(),
     NEXT_PUBLIC_API_URL: get_NEXT_PUBLIC_API_URL(),
