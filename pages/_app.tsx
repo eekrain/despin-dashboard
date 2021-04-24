@@ -14,8 +14,18 @@ import AuthRoutes from '../@crema/utility/AuthRoutes';
 import PageMeta from '../@crema/core/PageMeta';
 import {LocaleProvider} from '../@crema';
 import {QueryClient, QueryClientProvider} from 'react-query';
+import {transitions, positions, Provider as AlertProvider} from 'react-alert';
+import AlertTemplate from '../shared/components/AlertTemplate';
 
 const queryClient = new QueryClient();
+const reactAlertOptions = {
+  // you can also just use 'bottom center'
+  position: positions.BOTTOM_CENTER,
+  timeout: 5000,
+  offset: '30px',
+  // you can also just use 'scale'
+  transition: transitions.SCALE,
+};
 
 const CremaApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
@@ -37,16 +47,18 @@ const CremaApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
       <QueryClientProvider client={queryClient}>
         <ContextProvider>
           <Provider store={store}>
-            <CremaThemeProvider>
-              <CremaStyleProvider>
-                <LocaleProvider>
-                  <AuthRoutes>
-                    <CssBaseline />
-                    <Component {...pageProps} />
-                  </AuthRoutes>
-                </LocaleProvider>
-              </CremaStyleProvider>
-            </CremaThemeProvider>
+            <AlertProvider template={AlertTemplate} {...reactAlertOptions}>
+              <CremaThemeProvider>
+                <CremaStyleProvider>
+                  <LocaleProvider>
+                    <AuthRoutes>
+                      <CssBaseline />
+                      <Component {...pageProps} />
+                    </AuthRoutes>
+                  </LocaleProvider>
+                </CremaStyleProvider>
+              </CremaThemeProvider>
+            </AlertProvider>
           </Provider>
         </ContextProvider>
       </QueryClientProvider>

@@ -1,13 +1,10 @@
 FROM node:lts-stretch-slim
-USER node
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN yarn
+RUN yarn install --network-timeout 500000
 
 COPY . .
-RUN chmod 777 -R /app/.next
-RUN chmod 777 -R /app/node_modules
 
 CMD ["yarn", "dev"]

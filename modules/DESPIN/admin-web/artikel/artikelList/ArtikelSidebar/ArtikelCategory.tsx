@@ -20,10 +20,28 @@ const useStyles = makeStyles({
 interface IArtikelCategoryProps {
   data: IArtikelCategories;
   parentState: IArtikelListParentState;
+  redirectCategories: () => void;
 }
 
-const ArtikelCategory = ({data, parentState}: IArtikelCategoryProps) => {
+const ArtikelCategory = ({
+  data,
+  parentState,
+  redirectCategories,
+}: IArtikelCategoryProps) => {
   const classes = useStyles();
+
+  const handleCategoryTypeChange = (categoryType: string) => {
+    const found = parentState.expanded.find((type) => type === categoryType);
+    if (found)
+      parentState.setExpanded(
+        parentState.expanded.filter((type) => type !== categoryType),
+      );
+    if (!found)
+      parentState.setExpanded([...parentState.expanded, categoryType]);
+  };
+  const handleCategoryChange = (categorySlug: string) => {
+    parentState.setSelected(categorySlug);
+  };
 
   return (
     <TreeView
@@ -33,16 +51,32 @@ const ArtikelCategory = ({data, parentState}: IArtikelCategoryProps) => {
       defaultCollapseIcon={<ExpandMoreIcon />}
       defaultExpandIcon={<ChevronRightIcon />}>
       {/* DINAMIS */}
-      <TreeItem nodeId='dinamis' label='Dinamis'>
+      <TreeItem
+        nodeId='dinamis'
+        label='Dinamis'
+        onClick={() => handleCategoryTypeChange('dinamis')}>
         {data.dinamis.map((cat, i) => (
-          <TreeItem key={nanoid()} nodeId={`${cat.slug}`} label={cat.name} />
+          <TreeItem
+            key={nanoid()}
+            nodeId={`${cat.slug}`}
+            label={cat.name}
+            onClick={() => handleCategoryChange(cat.slug)}
+          />
         ))}
       </TreeItem>
 
       {/* STATIS */}
-      <TreeItem nodeId='statis' label='Statis'>
+      <TreeItem
+        nodeId='statis'
+        label='Statis'
+        onClick={() => handleCategoryTypeChange('statis')}>
         {data.statis.map((cat) => (
-          <TreeItem key={nanoid()} nodeId={`${cat.slug}`} label={cat.name} />
+          <TreeItem
+            key={nanoid()}
+            nodeId={`${cat.slug}`}
+            label={cat.name}
+            onClick={() => handleCategoryChange(cat.slug)}
+          />
         ))}
       </TreeItem>
     </TreeView>

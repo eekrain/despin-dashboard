@@ -1,9 +1,8 @@
 import {useRouter} from 'next/router';
 import React from 'react';
-import AppPage from '../../@crema/hoc/AppPage';
-import ArtikelService from '../../@crema/services/despin-api/artikel/artikel.service';
-import asyncComponent from '../../@crema/utility/asyncComponent';
-// import ArtikelList from '../../modules/DESPIN/admin-web/artikel/artikelList';
+import AppPage from '../../../@crema/hoc/AppPage';
+import ArtikelService from '../../../@crema/services/despin-api/artikel/artikel.service';
+import asyncComponent from '../../../@crema/utility/asyncComponent';
 
 export interface IArtikelCategory {
   id: number;
@@ -22,6 +21,10 @@ export interface IArtikelListByCategory {
   slug: string;
   isDisplayedRevision: boolean;
   createdAt: string;
+  ArtikelPublished: {
+    id: string;
+    is_enabled: boolean;
+  };
 }
 
 export async function getServerSideProps() {
@@ -35,7 +38,7 @@ export async function getServerSideProps() {
 }
 
 const ArtikelList: any = asyncComponent(
-  () => import('../../modules/DESPIN/admin-web/artikel/artikelList'),
+  () => import('../../../modules/DESPIN/admin-web/artikel/artikelList'),
 );
 
 interface IArtikelIndexProps {
@@ -47,8 +50,8 @@ export default AppPage(({categories}: IArtikelIndexProps) => {
   return (
     <ArtikelList
       categories={categories}
-      activeArtikelType={query.activeArtikelType}
-      activeCategory={query.activeCategory}
+      activeArtikelType={query?.activeArtikelType}
+      activeCategory={query?.activeCategory}
     />
   );
 });

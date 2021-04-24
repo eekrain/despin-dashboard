@@ -66,6 +66,22 @@ interface CremaPalette extends Palette {
     A400: string;
     A700: string;
   };
+  red: {
+    main: string;
+    hover: string;
+  };
+  orange: {
+    main: string;
+    hover: string;
+  };
+  darkGreen: {
+    main: string;
+    hover: string;
+  };
+  darkBlue: {
+    main: string;
+    hover: string;
+  };
 }
 
 export interface CremaTheme extends Theme {

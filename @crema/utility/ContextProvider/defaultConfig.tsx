@@ -56,6 +56,22 @@ const defaultConfig: any = {
         hint: '#aeafb8',
         white: '#fff',
       },
+      red: {
+        main: '#f44336',
+        hover: 'rgba(244, 67, 54, 0.3)',
+      },
+      orange: {
+        main: '#ff9800',
+        hover: 'rgba(255, 152, 0, 0.3)',
+      },
+      darkGreen: {
+        main: '#009688',
+        hover: 'rgba(0, 150, 136, 0.3)',
+      },
+      darkBlue: {
+        main: '#2c387e',
+        hover: 'rgba(44, 56, 126, 0.3)',
+      },
     },
     status: {
       danger: 'orange',

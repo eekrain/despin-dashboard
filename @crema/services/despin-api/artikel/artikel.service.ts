@@ -1,13 +1,17 @@
 import Api from '../../ApiConfig';
-import {IArtikelCategories} from '../../../../pages/admin-web/artikel';
+import ArtikelCreateService from './artikel-create.service';
+import ArtikelUpdateService from './artikel-update.service';
 
 const getArtikelCategories = async () => {
-  const response = await Api.get(`/api/v1/artikel/kategori`, {
-    withCredentials: true,
-    headers: {
-      accept: 'application/json',
+  const response = await Api.get(
+    `${process.env.NEXT_PUBLIC_API_URL_SERVER}/v1/artikel/kategori`,
+    {
+      withCredentials: true,
+      headers: {
+        accept: 'application/json',
+      },
     },
-  });
+  );
   console.log(
     '🚀 ~ file: artikel.service.js ~ line 17 ~ getArtikelKategoriList ~ response',
     response.data,
@@ -16,12 +20,32 @@ const getArtikelCategories = async () => {
 };
 
 const getArtikelListByKategori = async (kategoriSlug: string) => {
-  const response = await Api.get(`/api/v1/artikel/kategori/${kategoriSlug}`, {
-    withCredentials: true,
-    headers: {
-      accept: 'application/json',
+  const response = await Api.get(
+    `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel/kategori/${kategoriSlug}`,
+    {
+      withCredentials: true,
+      headers: {
+        accept: 'application/json',
+      },
     },
-  });
+  );
+  console.log(
+    '🚀 ~ file: artikel.service.ts ~ line 31 ~ getArtikelListByKategori ~ response',
+    response,
+  );
+  return response.data;
+};
+
+const deleteArtikel = async (hashedArtikelId: string) => {
+  const response = await Api.delete(
+    `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel/${hashedArtikelId}`,
+    {
+      withCredentials: true,
+      headers: {
+        accept: 'application/json',
+      },
+    },
+  );
   console.log(
     '🚀 ~ file: artikel.service.ts ~ line 31 ~ getArtikelListByKategori ~ response',
     response,
@@ -32,6 +56,13 @@ const getArtikelListByKategori = async (kategoriSlug: string) => {
 const ArtikelService = {
   getArtikelCategories,
   getArtikelListByKategori,
+  deleteArtikel,
+  create: {
+    ...ArtikelCreateService,
+  },
+  update: {
+    ...ArtikelUpdateService,
+  },
 };
 
 export default ArtikelService;

@@ -117,7 +117,7 @@ const SignupJwtAuth: React.FC<{}> = () => {
               setErrors({
                 confirmPassword: messages[
                   'validation.passwordMisMatch'
-                  ] as string,
+                ] as string,
               });
             } else {
               setSubmitting(true);
@@ -135,7 +135,7 @@ const SignupJwtAuth: React.FC<{}> = () => {
             <Form className={classes.formRoot} noValidate autoComplete='off'>
               <Box mb={{xs: 5, xl: 8}}>
                 <MyTextField
-                  label={<IntlMessages id='common.name'/>}
+                  label={<IntlMessages id='common.name' />}
                   name='name'
                   variant='outlined'
                   className={classes.myTextFieldRoot}
@@ -144,7 +144,7 @@ const SignupJwtAuth: React.FC<{}> = () => {
 
               <Box mb={{xs: 5, xl: 8}}>
                 <MyTextField
-                  label={<IntlMessages id='common.email'/>}
+                  label={<IntlMessages id='common.email' />}
                   name='email'
                   variant='outlined'
                   className={classes.myTextFieldRoot}
@@ -155,7 +155,7 @@ const SignupJwtAuth: React.FC<{}> = () => {
                 <Grid item xs={12} md={6}>
                   <Box mb={{xs: 0, xl: 4}}>
                     <MyTextField
-                      label={<IntlMessages id='common.password'/>}
+                      label={<IntlMessages id='common.password' />}
                       name='password'
                       type='password'
                       variant='outlined'
@@ -167,7 +167,7 @@ const SignupJwtAuth: React.FC<{}> = () => {
                 <Grid item xs={12} md={6}>
                   <Box mb={{xs: 3, xl: 4}}>
                     <MyTextField
-                      label={<IntlMessages id='common.retypePassword'/>}
+                      label={<IntlMessages id='common.retypePassword' />}
                       name='confirmPassword'
                       type='password'
                       variant='outlined'
@@ -183,13 +183,13 @@ const SignupJwtAuth: React.FC<{}> = () => {
                 alignItems='center'
                 fontSize={15}>
                 <Box display='flex' alignItems='center'>
-                  <Checkbox className={classes.checkboxRoot}/>
+                  <Checkbox className={classes.checkboxRoot} />
                   <Box
                     className={classes.textGrey}
                     component='span'
                     mr={2}
                     fontSize={15}>
-                    <IntlMessages id='common.iAgreeTo'/>
+                    <IntlMessages id='common.iAgreeTo' />
                   </Box>
                 </Box>
                 <Box
@@ -197,7 +197,7 @@ const SignupJwtAuth: React.FC<{}> = () => {
                   component='span'
                   fontSize={15}
                   className={classes.pointer}>
-                  <IntlMessages id='common.termConditions'/>
+                  <IntlMessages id='common.termConditions' />
                 </Box>
               </Box>
 
@@ -213,7 +213,7 @@ const SignupJwtAuth: React.FC<{}> = () => {
                   disabled={isSubmitting}
                   className={classes.btnRoot}
                   type='submit'>
-                  <IntlMessages id='common.signup'/>
+                  <IntlMessages id='common.signup' />
                 </Button>
 
                 <Box
@@ -222,15 +222,16 @@ const SignupJwtAuth: React.FC<{}> = () => {
                   color='text.secondary'
                   fontSize={15}>
                   <Box className={classes.textGrey} component='span' mr={1}>
-                    <IntlMessages id='common.alreadyHaveAccount'/>
+                    <IntlMessages id='common.alreadyHaveAccount' />
                   </Box>
                   <Box component='span'>
                     <Link href='/signin'>
-                      <a className={clsx(
-                        classes.underlineNone,
-                        classes.colorTextPrimary,
-                      )}>
-                        <IntlMessages id='common.signIn'/>
+                      <a
+                        className={clsx(
+                          classes.underlineNone,
+                          classes.colorTextPrimary,
+                        )}>
+                        <IntlMessages id='common.signIn' />
                       </a>
                     </Link>
                   </Box>
@@ -240,7 +241,7 @@ const SignupJwtAuth: React.FC<{}> = () => {
           )}
         </Formik>
       </Box>
-      <InfoView/>
+      <InfoView />
     </Box>
   );
 };

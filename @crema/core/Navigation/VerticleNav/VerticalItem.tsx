@@ -14,17 +14,18 @@ import {NavItemProps} from '../../../../modules/routesConfig';
 import {AppState} from '../../../../redux/store';
 import {AuthUser} from '../../../../types/models/AuthUser';
 
-
 interface VerticalItemProps {
   item: NavItemProps;
-  level: number
+  level: number;
 }
-
 
 const VerticalItem: React.FC<VerticalItemProps> = ({item, level}) => {
   const {themeMode} = useContext(AppContext);
   const classes = useStyles({level, themeMode});
-  const {user}: {user: AuthUser | null} = useSelector<AppState, AppState['auth']>(({auth}) => auth);
+  const {user}: {user: AuthUser | null} = useSelector<
+    AppState,
+    AppState['auth']
+  >(({auth}) => auth);
   const router = useRouter();
   const {pathname} = router;
   const hasPermission = useMemo(() => checkPermission(item.auth, user!.role), [
@@ -40,7 +41,7 @@ const VerticalItem: React.FC<VerticalItemProps> = ({item, level}) => {
       <ListItem
         button
         className={clsx(classes.navItem, 'nav-item', {
-          active: item.url === pathname,
+          active: pathname.includes(item.url),
         })}>
         {item.icon && (
           <Box component='span' mr={6}>
@@ -52,12 +53,12 @@ const VerticalItem: React.FC<VerticalItemProps> = ({item, level}) => {
           </Box>
         )}
         <ListItemText
-          primary={<IntlMessages id={item.messageId}/>}
+          primary={<IntlMessages id={item.messageId} />}
           classes={{primary: 'nav-item-text'}}
         />
         {item.count && (
           <Box mr={1} clone>
-            <Badge count={item.count} color={item.color}/>
+            <Badge count={item.count} color={item.color} />
           </Box>
         )}
       </ListItem>
