@@ -1,0 +1,10 @@
+FROM node:lts-stretch-slim
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN yarn install --network-timeout 500000
+
+COPY . .
+
+CMD ["yarn", "dev"]
