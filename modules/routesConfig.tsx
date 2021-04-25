@@ -44,6 +44,22 @@ const routesConfig: NavItemProps[] = [
           },
         ],
       },
+      {
+        id: 'pengaturan',
+        title: 'Pengaturan',
+        messageId: 'Pengaturan',
+        type: 'collapse',
+        icon: 'settings',
+        children: [
+          {
+            id: 'database',
+            title: 'Database',
+            messageId: 'Database',
+            type: 'item',
+            url: '/pengaturan/database',
+          },
+        ],
+      },
       // {
       //   id: 'metrics',
       //   title: 'Metrics',
