@@ -6,7 +6,9 @@ import Loader from '../../core/Loader';
 import {AppState} from '../../../redux/store';
 
 const withData = (ComposedComponent: any) => (props: any) => {
-  const {user, loading} = useSelector<AppState, AppState['auth']>(({auth}) => auth);
+  const {user, loading} = useSelector<AppState, AppState['auth']>(
+    ({auth}) => auth,
+  );
   const {asPath} = useRouter();
   const queryParams = asPath.split('?')[1];
   useEffect(() => {
@@ -14,8 +16,8 @@ const withData = (ComposedComponent: any) => (props: any) => {
       Router.push(initialUrl + (queryParams ? '?' + queryParams : ''));
     }
   }, [user]);
-  if (loading) return <Loader/>;
-  if (user) return <Loader/>;
+  if (loading) return <Loader />;
+  if (user) return <Loader />;
 
   return <ComposedComponent {...props} />;
 };

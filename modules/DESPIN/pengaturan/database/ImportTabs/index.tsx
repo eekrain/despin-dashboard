@@ -5,6 +5,7 @@ import Tab from '@material-ui/core/Tab';
 import {CremaTheme} from '../../../../../types/AppContextPropsType';
 import TabPanelImportDatabase from './TabPanelImportDatabase';
 import {nanoid} from 'nanoid';
+import {importOptions} from '..';
 
 function a11yProps(index: any) {
   return {
@@ -24,65 +25,6 @@ const useStyles = makeStyles((theme: CremaTheme) => ({
     borderRight: `1px solid ${theme.palette.divider}`,
   },
 }));
-
-export interface IImportOptions {
-  name: string;
-  importerFields: {
-    name: string;
-    label: string;
-  }[];
-}
-const importOptions: IImportOptions[] = [
-  {
-    name: 'kependudukan',
-    importerFields: [
-      {
-        name: 'NIK',
-        label: 'NIK',
-      },
-      {
-        name: 'NO_KK',
-        label: 'NOMOR KK',
-      },
-      {
-        name: 'NAMA_LGKP',
-        label: 'NAMA LENGKAP',
-      },
-      {
-        name: 'JENIS_KLMIN',
-        label: 'JENIS KELAMIN',
-      },
-      {
-        name: 'TMPT_LHR',
-        label: 'TEMPAT LAHIR',
-      },
-      {
-        name: 'TGL_LHR',
-        label: 'TANGGAL LAHIR',
-      },
-      {
-        name: 'NO_KEC',
-        label: 'NOMOR KECAMATAN',
-      },
-      {
-        name: 'NO_KEL',
-        label: 'NO KELURAHAN',
-      },
-      {
-        name: 'ALAMAT',
-        label: 'ALAMAT',
-      },
-      {
-        name: 'NO_RT',
-        label: 'NO RT',
-      },
-      {
-        name: 'NO_RW',
-        label: 'NO RW',
-      },
-    ],
-  },
-];
 
 const ImportTabs = () => {
   const classes = useStyles();
