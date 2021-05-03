@@ -5,7 +5,7 @@ import ArtikelUpdateService from './artikel-update.service';
 
 const getArtikelCategories = async () => {
   const response = await Api.get(
-    `${process.env.NEXT_PUBLIC_API_URL_SERVER}/v1/artikel/kategori`,
+    `${API_URL.getDespinApiUrl()}/v1/artikel/kategori`,
     {
       withCredentials: true,
       headers: {
