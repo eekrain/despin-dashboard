@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "NODE_ENV=development next -p 5000",
     "build": "next build",
+    "build-local": "NODE_ENV=staging VERCEL_GIT_COMMIT_REF=staging next build",
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
@@ -39,6 +40,7 @@
     "clsx": "^1.1.1",
     "d3-geo": "^2.0.1",
     "date-fns": "^2.16.1",
+    "dayjs": "^1.10.4",
     "downshift": "^6.0.6",
     "draft-js": "^0.11.7",
     "file-saver": "^2.0.5",

@@ -1,5 +1,4 @@
 import API_URL from '../../../../../shared/constants/API_URL';
-import getDespinApiUrl from '../../../../../shared/helpers/getDespinApiUrl';
 import Api from '../../../ApiConfig';
 import IApiStatus from '../../../dto/api-status.dto';
 

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {NextRouter} from 'next/router';
 import {QueryClient} from 'react-query';
 import {ModeArtikelImageEnum} from './dto/artikel-create-dto';
 

@@ -2,7 +2,6 @@ import React, {ReactNode} from 'react';
 import Card from '@material-ui/core/Card';
 import {Box, CardHeader, makeStyles} from '@material-ui/core';
 import {Fonts} from '../../../shared/constants/AppEnums';
-import {MessageFormatElement} from 'intl-messageformat-parser';
 import {CremaTheme} from '../../../types/AppContextPropsType';
 import Link from '@material-ui/core/Link';
 import CardContent from '@material-ui/core/CardContent';
@@ -29,9 +28,9 @@ const useStyles = makeStyles((theme: CremaTheme) => ({
 }));
 
 interface AppCardProps {
-  title?: string | MessageFormatElement[] | ReactNode;
+  title?: string | ReactNode;
   titleStyle?: any;
-  action?: ReactNode | string | MessageFormatElement[];
+  action?: ReactNode | string;
   actionStyle?: any;
   footer?: any;
   footerPosition?: string;

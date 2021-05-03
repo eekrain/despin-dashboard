@@ -46,7 +46,7 @@ const HorizontalItem: React.FC<HorizontalItemProps> = ({item, dense}) => {
     <ListItem
       onClick={() => router.push(item.url ? item.url : '/')}
       className={clsx('navItemSubmenu', classes.root, dense && 'dense', {
-        active: pathname.includes(item.url),
+        active: pathname.includes(item!.url!),
       })}>
       {item.icon && (
         <Box fontSize={{xs: 16, xl: 18}} mr={3} clone>
