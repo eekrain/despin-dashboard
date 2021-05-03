@@ -1,6 +1,8 @@
-import React from "react";
-import AppPage from "../../../@crema/hoc/AppPage";
-import asyncComponent from "../../../@crema/utility/asyncComponent";
+import React from 'react';
+import AppPage from '../../../../@crema/hoc/AppPage';
+import asyncComponent from '../../../../@crema/utility/asyncComponent';
 
-const ForgetPassword = asyncComponent(() => import("../../../modules/userPages/UserPages/ForgetPassword"));
-export default AppPage(() => <ForgetPassword/>);
+const ForgetPassword = asyncComponent(
+  () => import('../../../../modules/userPages/UserPages/ForgetPassword'),
+);
+export default AppPage(() => <ForgetPassword />);
