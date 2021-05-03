@@ -1,14 +1,14 @@
 import Api from '../../ApiConfig';
 import {QueryClient} from 'react-query';
 import {ModeArtikelImageEnum} from './dto/artikel-create-dto';
-import getDespinApiUrl from '../../../../shared/helpers/getDespinApiUrl';
 import {ArtikelUploadedImagesModeEnum} from './dto/artikelUploadedImagesMode.enum';
 import {IArtikelUpdateFormikInitValue} from '../../../../modules/DESPIN/admin-web/artikel/artikelForm/update';
+import API_URL from '../../../../shared/constants/API_URL';
 
 const getArtikelDataById = async (hashedArtikelId: string) => {
   try {
     const response = await Api.get(
-      `${getDespinApiUrl()}/v1/artikel/findById/${hashedArtikelId}`,
+      `${API_URL.getDespinApiUrl()}/v1/artikel/findById/${hashedArtikelId}`,
     );
     return {isSuccess: true, data: response.data};
   } catch (error) {
@@ -23,7 +23,7 @@ const getArtikelDataById = async (hashedArtikelId: string) => {
 const getArtikelMainImageId = async (hashedArtikelId: string) => {
   try {
     const response = await Api.get(
-      `${getDespinApiUrl()}/v1/artikel/getMainImageId/${hashedArtikelId}`,
+      `${API_URL.getDespinApiUrl()}/v1/artikel/getMainImageId/${hashedArtikelId}`,
     );
     return {isSuccess: true, data: response.data};
   } catch (error) {
@@ -91,7 +91,7 @@ const handleTinyUploadImage = async (artikelId: string, blobInfo: any) => {
 const getArtikelUploadedImages = async (artikelId: string) => {
   try {
     const res = await Api.get(
-      `${getDespinApiUrl()}/v1/artikel/uploadImages/${artikelId}/${
+      `${API_URL.getDespinApiUrl()}/v1/artikel/uploadImages/${artikelId}/${
         ArtikelUploadedImagesModeEnum.PUBLISHED
       }`,
     );

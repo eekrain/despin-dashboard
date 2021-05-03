@@ -1,3 +1,4 @@
+import API_URL from '../../../../../shared/constants/API_URL';
 import getDespinApiUrl from '../../../../../shared/helpers/getDespinApiUrl';
 import Api from '../../../ApiConfig';
 import IApiStatus from '../../../dto/api-status.dto';
@@ -6,7 +7,7 @@ const PengaturanDatabaseService = {
   importPenduduk: async (penduduk: any): Promise<IApiStatus> => {
     try {
       await Api.post(
-        `${getDespinApiUrl()}/v1/pengaturan-dashboard/database/importPenduduk`,
+        `${API_URL.getDespinApiUrl()}/v1/pengaturan-dashboard/database/importPenduduk`,
         {dataImport: penduduk},
       );
       return {isSuccess: true};
