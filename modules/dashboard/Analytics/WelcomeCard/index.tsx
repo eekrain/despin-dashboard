@@ -123,9 +123,7 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({data}) => {
         <Box className={classes.imgRoot}>
           <img
             alt='welcome'
-            src={
-              '${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/welcomImage.png'
-            }
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/dashboard/welcomImage.png`}
           />
         </Box>
       </Box>

@@ -53,7 +53,7 @@ const handleUpload = async ({
 
   try {
     const res = await Api.post(
-      `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel/uploadImagesToExistingArtikel`,
+      `${API_URL.getDespinApiUrl()}/v1/artikel/uploadImagesToExistingArtikel`,
       data,
       {
         headers: {
@@ -79,7 +79,7 @@ const handleTinyUploadImage = async (artikelId: string, blobInfo: any) => {
 
   try {
     const res = await Api.post(
-      `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel/tinyUploadImageToExistingArtikel`,
+      `${API_URL.getDespinApiUrl()}/v1/artikel/tinyUploadImageToExistingArtikel`,
       data,
     );
     return {status: 'success', location: res.data.location};
@@ -118,7 +118,9 @@ const handleDeleteImage = async ({
 }: IHandleDeleteImage) => {
   try {
     const res = await Api.delete(
-      `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel/deleteImage/${artikelId}/${hashedImageId}/${ModeArtikelImageEnum.PUB}`,
+      `${API_URL.getDespinApiUrl()}/v1/artikel/deleteImage/${artikelId}/${hashedImageId}/${
+        ModeArtikelImageEnum.PUB
+      }`,
     );
   } catch (error) {
     console.error(
@@ -131,7 +133,7 @@ const handleDeleteImage = async ({
 const handleSubmit = async (formikValue: any) => {
   try {
     const response = await Api.patch(
-      `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel`,
+      `${API_URL.getDespinApiUrl()}/v1/artikel`,
       formikValue,
       {
         withCredentials: true,

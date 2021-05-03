@@ -1,3 +1,4 @@
+import API_URL from '../../../../shared/constants/API_URL';
 import Api from '../../ApiConfig';
 import ArtikelCreateService from './artikel-create.service';
 import ArtikelUpdateService from './artikel-update.service';
@@ -21,7 +22,7 @@ const getArtikelCategories = async () => {
 
 const getArtikelListByKategori = async (kategoriSlug: string) => {
   const response = await Api.get(
-    `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel/kategori/${kategoriSlug}`,
+    `${API_URL.getDespinApiUrl()}/v1/artikel/kategori/${kategoriSlug}`,
     {
       withCredentials: true,
       headers: {
@@ -38,7 +39,7 @@ const getArtikelListByKategori = async (kategoriSlug: string) => {
 
 const deleteArtikel = async (hashedArtikelId: string) => {
   const response = await Api.delete(
-    `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel/${hashedArtikelId}`,
+    `${API_URL.getDespinApiUrl()}/v1/artikel/${hashedArtikelId}`,
     {
       withCredentials: true,
       headers: {
