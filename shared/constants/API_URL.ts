@@ -9,7 +9,7 @@ const getDespinApiUrl = () => {
     : process.env.VERCEL_GIT_COMMIT_REF === 'production'
     ? process.env.NEXT_PUBLIC_API_URL_PRODUCTION
     : process.env.VERCEL_GIT_COMMIT_REF === 'staging' ||
-      process.env.VERCEL_GIT_COMMIT_REF === 'main'
+      process.env.VERCEL_GIT_COMMIT_REF === 'master'
     ? process.env.NEXT_PUBLIC_API_URL_STAGING
     : `http://localhost:3000/api`;
 };
