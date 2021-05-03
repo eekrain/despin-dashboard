@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {QueryClient} from 'react-query';
+import API_URL from '../../../../shared/constants/API_URL';
 import {ModeArtikelImageEnum} from './dto/artikel-create-dto';
 
 export interface IHandleUpload {
@@ -20,7 +21,7 @@ const handleUpload = async ({
 
   try {
     const res = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel/uploadImages`,
+      `${API_URL.getDespinApiUrl()}/v1/artikel/uploadImages`,
       data,
       {
         headers: {
@@ -46,7 +47,7 @@ const handleTinyUploadImage = async (artikelId: string, blobInfo: any) => {
 
   try {
     const res = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel/tinyUploadImage`,
+      `${API_URL.getDespinApiUrl()}/v1/artikel/tinyUploadImage`,
       data,
     );
     return {status: 'success', location: res.data.location};
@@ -58,7 +59,7 @@ const handleTinyUploadImage = async (artikelId: string, blobInfo: any) => {
 const getNewArtikelUploadedImages = async (artikelId: string) => {
   try {
     const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel/uploadImages/${artikelId}/TEMP`,
+      `${API_URL.getDespinApiUrl()}/v1/artikel/uploadImages/${artikelId}/TEMP`,
       {
         withCredentials: true,
         headers: {
@@ -89,7 +90,9 @@ const handleDeleteImage = async ({
 }: IHandleDeleteImage) => {
   try {
     const res = await axios.delete(
-      `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel/deleteImage/${artikelId}/${hashedImageId}/${ModeArtikelImageEnum.TEMP}`,
+      `${API_URL.getDespinApiUrl()}/v1/artikel/deleteImage/${artikelId}/${hashedImageId}/${
+        ModeArtikelImageEnum.TEMP
+      }`,
     );
   } catch (error) {
     console.error(
@@ -102,7 +105,7 @@ const handleDeleteImage = async ({
 const handleSubmit = async (formikValue: any) => {
   try {
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL_CLIENT}/v1/artikel`,
+      `${API_URL.getDespinApiUrl()}/v1/artikel`,
       formikValue,
       {
         withCredentials: true,
