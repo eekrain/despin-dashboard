@@ -41,7 +41,7 @@ const VerticalItem: React.FC<VerticalItemProps> = ({item, level}) => {
       <ListItem
         button
         className={clsx(classes.navItem, 'nav-item', {
-          active: pathname.includes(item.url),
+          active: pathname.includes(item!.url!),
         })}>
         {item.icon && (
           <Box component='span' mr={6}>

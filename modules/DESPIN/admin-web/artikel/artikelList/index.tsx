@@ -24,16 +24,12 @@ export interface IArtikelListParentState {
 const ArtikelList = ({
   categories,
   activeArtikelType = 'dinamis',
-  activeCategory = 'berita-desa',
+  activeCategory = 'berita',
 }: IArtikelListProps) => {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const [expanded, setExpanded] = useState([
-    activeArtikelType !== null ? activeArtikelType : 'dinamis',
-  ]);
-  const [selected, setSelected] = useState(
-    activeCategory !== null ? activeCategory : 'berita-desa',
-  );
+  const [expanded, setExpanded] = useState([activeArtikelType]);
+  const [selected, setSelected] = useState(activeCategory);
 
   const listArtikel = useQuery([`artikel-list-${selected}`, selected], () =>
     ArtikelService.getArtikelListByKategori(selected),
