@@ -31,13 +31,7 @@ const ArtikelCategory = ({
   const classes = useStyles();
 
   const handleCategoryTypeChange = (categoryType: string) => {
-    const found = parentState.expanded.find((type) => type === categoryType);
-    if (found)
-      parentState.setExpanded(
-        parentState.expanded.filter((type) => type !== categoryType),
-      );
-    if (!found)
-      parentState.setExpanded([...parentState.expanded, categoryType]);
+    parentState.setExpanded([categoryType]);
   };
   const handleCategoryChange = (categorySlug: string) => {
     parentState.setSelected(categorySlug);
